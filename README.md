@@ -8,7 +8,7 @@
 Motivation and Description: The motivation for this project is that there are a lot of conditions that are caused by DNA and DNA mutation. For this project we wanted to dive deeper into creating a program that will help users (targertting base level biology/life science students) to learn more about how mutations and other DNA complications work. 
 
 To start the program, click this link:
-[DNA-Blockly](https://AidanFLG.github.io/DNA-Blockly/)
+[DNA-Blockly](https://AidanFLG/AidanFLG.github.io/DNA-Blockly/)
 
 Relation to Parsing, Interpretation, and Compilation:
 Parsing in the DNA Project:
