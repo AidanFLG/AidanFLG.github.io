@@ -43,3 +43,16 @@ Blockly.Blocks['variable'] = {
     this.setHelpUrl("");
   }
 };
+
+// can input text for other blocks
+Blockly.Blocks['text_block'] = {
+  init: function() {
+    this.appendValueInput("TEXT_INPUT")
+        .setCheck(["String", "Number"])
+        .appendField("Text:");
+    this.setOutput(true, "String"); // You can change the output type to match your needs.
+    this.setColour(160);
+    this.setTooltip("Input a string, number, or data type.");
+    this.setHelpUrl("");
+  }
+};
