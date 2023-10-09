@@ -90,3 +90,11 @@ Blockly.Blocks['text_input'] = {
     this.setHelpUrl("");
   }
 };
+
+
+Blockly.JavaScript.forBlock['import_swiftui'] = function(block) {
+  var imports = "import SwiftUI";
+  var spacer = "\n";
+  var opener = "struct ContentView: View {";
+  return [imports, spacer, opener];
+};
