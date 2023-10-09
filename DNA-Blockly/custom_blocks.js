@@ -2,9 +2,9 @@
 Blockly.Blocks['dna_block'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("DNA")
+        .appendField("DNA Strand:")
         .appendField(new Blockly.FieldTextInput("Enter DNA strand"), "DNA_STRAND");
-    this.setOutput(true, "DNA");
+    this.setOutput(true, "String");
     this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
