@@ -4,7 +4,7 @@ Blockly.Blocks['dna_block'] = {
     this.appendDummyInput()
         .appendField("DNA")
         .appendField(new Blockly.FieldTextInput("Enter DNA strand"), "DNA_STRAND");
-    this.setOutput(true, null);
+    this.setOutput(true, "DNA");
     this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
@@ -14,7 +14,8 @@ Blockly.Blocks['dna_block'] = {
 // Define the Mutation block.
 Blockly.Blocks['mutation_block'] = {
   init: function() {
-    this.appendDummyInput()
+    this.appendValueInput("DNA_STRAND")
+        .setCheck("DNA")
         .appendField("Mutation")
         .appendField(new Blockly.FieldNumber(0, 0), "MUTATION_COUNT")
         .appendField("mutations");
