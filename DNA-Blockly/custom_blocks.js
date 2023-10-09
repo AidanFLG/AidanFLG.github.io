@@ -26,7 +26,6 @@ Blockly.Blocks['mutation_block'] = {
   }
 };
 
-// Define JavaScript code generation for the Mutation block.
 Blockly.JavaScript['mutation_block'] = function(block) {
   var mutationCount = block.getFieldValue('MUTATION_COUNT');
   var dnaStrand = Blockly.JavaScript.valueToCode(block, 'DNA_STRAND', Blockly.JavaScript.ORDER_ATOMIC);
@@ -35,11 +34,11 @@ Blockly.JavaScript['mutation_block'] = function(block) {
   var code = '';
   if (mutationCount > 0) {
     code = `
-      var mutatedStrand = '';
+      var mutatedStrand = ${dnaStrand};
       for (var i = 0; i < ${mutationCount}; i++) {
-        var position = Math.floor(Math.random() * ${dnaStrand}.length);
+        var position = Math.floor(Math.random() * mutatedStrand.length);
         var mutation = 'ATCG'[Math.floor(Math.random() * 4)];
-        mutatedStrand = ${dnaStrand}.substring(0, position) + mutation + ${dnaStrand}.substring(position + 1);
+        mutatedStrand = mutatedStrand.substring(0, position) + mutation + mutatedStrand.substring(position + 1);
       }
       console.log(mutatedStrand);
     `;
