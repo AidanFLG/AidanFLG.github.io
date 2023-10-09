@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swift Code Generator</title>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <!-- Add your Blockly workspace div and buttons here -->
+    <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <button onclick="generateCode()">Generate Swift Code</button>
+    <button onclick="saveCode()">Save Code</button>
+    <textarea id="outputCode" style="display: none;"></textarea>
+    <a id="downloadLink" style="display: none;">Download Code</a>
+    <script src="custom_blocks.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
