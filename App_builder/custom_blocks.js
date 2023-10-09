@@ -10,7 +10,7 @@ Blockly.Blocks['import_swiftui'] = {
   }
 };
 
-// generate code button outputs:
+// Generate code button outputs:
 Blockly.JavaScript['import_swiftui'] = function(block) {
   var code = "import SwiftUI;\n\n";
   code += "struct ContentView: View {";
@@ -21,8 +21,8 @@ Blockly.JavaScript['import_swiftui'] = function(block) {
 Blockly.Blocks['var_body'] = {
   init: function() {
     this.appendValueInput("BODY_NAME")
-        .appendField("Create var body with name:");
-        .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
+        .appendField("Create var body with name:")
+        .appendField(new Blockly.FieldTextInput("Enter body name"), "NAME");
     this.appendStatementInput("BODY_CONTENT")
         .setCheck(["Variable", "var_body"])
         .appendField("Body Content");
@@ -38,8 +38,8 @@ Blockly.Blocks['var_body'] = {
 Blockly.Blocks['variable'] = {
   init: function() {
     this.appendValueInput("VAR_NAME")
-        .appendField("variable named:");
-        .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
+        .appendField("variable named:")
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendValueInput("VAR_VALUE")
         .setCheck(null)
         .appendField("Value:");
@@ -52,7 +52,7 @@ Blockly.Blocks['variable'] = {
   }
 };
 
-// Create a variable block
+// Create a state variable block
 Blockly.Blocks['state_variable'] = {
   init: function() {
     this.appendValueInput("VAR_STATE")
@@ -60,7 +60,7 @@ Blockly.Blocks['state_variable'] = {
         .appendField(new Blockly.FieldTextInput("public or private"), "STATE");
     this.appendValueInput("VAR_NAME")
         .appendField("state variable named:")
-        .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendValueInput("VAR_VALUE")
         .setCheck(null)
         .appendField("Value:");
@@ -78,7 +78,7 @@ Blockly.Blocks['user_variable'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("var")
-        .appendField(new Blockly.FieldTextInput("Enter var"), "NAME");
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.setOutput(true, "Variable");
     this.setColour(430);
     this.setTooltip("");
