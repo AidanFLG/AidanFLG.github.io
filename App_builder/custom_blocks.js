@@ -78,8 +78,10 @@ Blockly.Blocks['variable'] = {
 };
 
 Blockly.JavaScript['variable'] = function(block) {
+  var var_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE)
+  var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
-  code += ("var" + NAME + " = " + VAR_VALUE);
+  code += ("var " + var_name + " = " + var_value);
   return code;
 };
 
@@ -105,8 +107,11 @@ Blockly.Blocks['state_variable'] = {
 };
 
 Blockly.JavaScript['state_variable'] = function(block) {
+  var var_state = Blockly.JavaScript.valueToCode(block, 'STATE', Blockly.JavaScript.ORDER_NONE)
+  var var_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE)
+  var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
-  code += ("@state" + " " + STATE + " " + NAME + " = " + VAR_VALUE);
+  code += ("@state" + " " + var_state + " " + var_name + " = " + var_value);
   return code;
 };
 
