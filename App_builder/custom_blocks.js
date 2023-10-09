@@ -49,7 +49,7 @@ Blockly.Blocks['user_variable'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("var")
-        .appendField(new Blockly.FieldTextInput("x"), "NAME");
+        .appendField(new Blockly.FieldTextInput("type_here"), "NAME");
     this.setOutput(true, "Variable");
     this.setColour(430);
     this.setTooltip("");
