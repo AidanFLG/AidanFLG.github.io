@@ -17,6 +17,7 @@ Blockly.JavaScript['import_swiftui'] = function(block) {
   return code;
 };
 
+
 // Create a var body block
 Blockly.Blocks['var_body'] = {
   init: function() {
@@ -32,6 +33,12 @@ Blockly.Blocks['var_body'] = {
     this.setTooltip("Create a var body for ContentView");
     this.setHelpUrl("");
   }
+};
+
+Blockly.JavaScript['var_body'] = function(block) {
+  var code = "\n\n";
+  code += "}";
+  return code;
 };
 
 // Create a variable block
