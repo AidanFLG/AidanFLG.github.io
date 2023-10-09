@@ -44,15 +44,15 @@ Blockly.Blocks['variable'] = {
   }
 };
 
-// can input text for other blocks
-Blockly.Blocks['var'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("var")
-          .appendField(new Blockly.FieldTextInput("x"), "NAME");
-      this.setOutput(true, "var");
-      this.setColour(430);
-      this.setTooltip("");
-      this.setHelpUrl("");
-    }
-  };
+// Create a variable block
+Blockly.Blocks['user_variable'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("var")
+        .appendField(new Blockly.FieldTextInput("x"), "NAME");
+    this.setOutput(true, "Variable");
+    this.setColour(430);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
