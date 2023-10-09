@@ -82,7 +82,7 @@ Blockly.JavaScript['variable'] = function(block) {
   var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
   code += ("var " + var_name + " = " + var_value);
-  return code;
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];;
 };
 
 // Create a state variable block
@@ -112,7 +112,7 @@ Blockly.JavaScript['state_variable'] = function(block) {
   var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
   code += ("@state" + " " + var_state + " " + var_name + " = " + var_value);
-  return code;
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];;
 };
 
 // Create a variable block
