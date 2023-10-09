@@ -13,4 +13,4 @@ To start the DNA program, click this link:
 DNA replication embodies this concept. The original DNA sequence is compiled into a new, complementary DNA strand. This replication ensures that the genetic instructions are preserved and can be passed on.
 
 To start the App program, click this link:
-[APP Blockly](https://AidanFLG.github.io/App_Blockly/)
+[APP Blockly](https://AidanFLG.github.io/App_builder/)
