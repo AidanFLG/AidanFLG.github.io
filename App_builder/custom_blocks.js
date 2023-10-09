@@ -14,8 +14,8 @@ Blockly.Blocks['import_swiftui'] = {
 Blockly.Blocks['var_body'] = {
   init: function() {
     this.appendValueInput("BODY_NAME")
-        .setCheck(["String", "Variable"])
         .appendField("Create var body with name:");
+        .appendField(new Blockly.FieldTextInput("Enter var"), "NAME");
     this.appendStatementInput("BODY_CONTENT")
         .setCheck(["Variable", "var_body"])
         .appendField("Body Content");
