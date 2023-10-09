@@ -20,7 +20,7 @@ Blockly.JavaScript['import_swiftui'] = function(block) {
 // Create a var body block
 Blockly.Blocks['var_body'] = {
   init: function() {
-    this.appendValueInput("BODY_NAME")
+    this.appendDummyInput("BODY_NAME")
         .appendField("Create var body with name:")
         .appendField(new Blockly.FieldTextInput("Enter body name"), "NAME");
     this.appendStatementInput("BODY_CONTENT")
@@ -37,7 +37,7 @@ Blockly.Blocks['var_body'] = {
 // Create a variable block
 Blockly.Blocks['variable'] = {
   init: function() {
-    this.appendValueInput("VAR_NAME")
+    this.appendDummyInput("VAR_NAME")
         .appendField("variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendValueInput("VAR_VALUE")
@@ -55,10 +55,10 @@ Blockly.Blocks['variable'] = {
 // Create a state variable block
 Blockly.Blocks['state_variable'] = {
   init: function() {
-    this.appendValueInput("VAR_STATE")
+    this.appendDummyInput("VAR_STATE")
         .appendField("Public or Private:")
         .appendField(new Blockly.FieldTextInput("public or private"), "STATE");
-    this.appendValueInput("VAR_NAME")
+    this.appendDummyInput("VAR_NAME")
         .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendValueInput("VAR_VALUE")
