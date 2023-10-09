@@ -17,6 +17,23 @@ Blockly.JavaScript['import_swiftui'] = function(block) {
   return code;
 };
 
+Blockly.Blocks['content_closer'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Close Content");
+    this.setPreviousStatement(true, null); // Allow connection from the previous block
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Closes out content
+Blockly.JavaScript['content_closer'] = function(block) {
+  return '}'; 
+};
+
+
 
 // Create a var body block
 Blockly.Blocks['var_body'] = {
