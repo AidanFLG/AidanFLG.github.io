@@ -21,7 +21,8 @@ Blockly.Blocks['content_closer'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Close Content");
-    this.setPreviousStatement(true, null); // Allow connection from the previous block
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
