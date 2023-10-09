@@ -35,8 +35,6 @@ Blockly.JavaScript['content_closer'] = function(block) {
   return code;
 };
 
-
-
 // Create a var body block
 Blockly.Blocks['var_body'] = {
   init: function() {
@@ -76,6 +74,12 @@ Blockly.Blocks['variable'] = {
     this.setTooltip("Create a variable");
     this.setHelpUrl("");
   }
+};
+
+Blockly.JavaScript['variable'] = function(block) {
+  var code = "\n";
+  code += ("var" + NAME + " = " + VAR_VALUE + ";");
+  return code;
 };
 
 // Create a state variable block
