@@ -14,10 +14,10 @@ Blockly.Blocks['import_swiftui'] = {
 Blockly.Blocks['var_body'] = {
   init: function() {
     this.appendValueInput("BODY_NAME")
-        .setCheck("String")
+        .setCheck(["String", "Variable"])
         .appendField("Create var body with name:");
     this.appendStatementInput("BODY_CONTENT")
-        .setCheck(null)
+        .setCheck(["Variable", "var_body"])
         .appendField("Body Content");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -31,19 +31,19 @@ Blockly.Blocks['var_body'] = {
 Blockly.Blocks['variable'] = {
   init: function() {
     this.appendValueInput("VAR_NAME")
-        .setCheck("String")
+        .setCheck(["String", "Variable"])
         .appendField("Create variable named:");
     this.appendValueInput("VAR_VALUE")
         .setCheck(null)
         .appendField("Value:");
     this.setInputsInline(true);
-    this.setOutput(true, "Variable");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(60);
     this.setTooltip("Create a variable");
     this.setHelpUrl("");
   }
 };
-
 // Create a variable block
 Blockly.Blocks['user_variable'] = {
   init: function() {
