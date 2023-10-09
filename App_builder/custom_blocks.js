@@ -54,7 +54,7 @@ Blockly.Blocks['var_body'] = {
 
 Blockly.JavaScript['var_body'] = function(block) {
   var code = "\n\n";
-  code += "}";
+  code += "var body: some View{";
   return code;
 };
 
