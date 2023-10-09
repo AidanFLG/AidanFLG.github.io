@@ -49,10 +49,23 @@ Blockly.Blocks['user_variable'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("var")
-        .appendField(new Blockly.FieldTextInput("type_here"), "NAME");
+        .appendField(new Blockly.FieldTextInput("Enter var"), "NAME");
     this.setOutput(true, "Variable");
     this.setColour(430);
     this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Create a text block
+Blockly.Blocks['text_input'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Text:")
+        .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE");
+    this.setOutput(true, "String");
+    this.setColour(430);
+    this.setTooltip("Input a text value.");
     this.setHelpUrl("");
   }
 };
