@@ -10,6 +10,13 @@ Blockly.Blocks['import_swiftui'] = {
   }
 };
 
+// generate code button outputs:
+Blockly.JavaScript['import_swiftui'] = function(block) {
+  var code = "import SwiftUI;\n\n";
+  code += "struct ContentView: View {";
+  return code;
+};
+
 // Create a var body block
 Blockly.Blocks['var_body'] = {
   init: function() {
@@ -49,10 +56,10 @@ Blockly.Blocks['variable'] = {
 Blockly.Blocks['state_variable'] = {
   init: function() {
     this.appendValueInput("VAR_STATE")
-        .appendField("Public or Private:");
+        .appendField("Public or Private:")
         .appendField(new Blockly.FieldTextInput("public or private"), "STATE");
     this.appendValueInput("VAR_NAME")
-        .appendField("state variable named:");
+        .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
     this.appendValueInput("VAR_VALUE")
         .setCheck(null)
@@ -65,6 +72,7 @@ Blockly.Blocks['state_variable'] = {
     this.setHelpUrl("");
   }
 };
+
 // Create a variable block
 Blockly.Blocks['user_variable'] = {
   init: function() {
@@ -89,12 +97,4 @@ Blockly.Blocks['text_input'] = {
     this.setTooltip("Input a text value.");
     this.setHelpUrl("");
   }
-};
-
-
-Blockly.JavaScript.forBlock['import_swiftui'] = function(block) {
-  var imports = "import SwiftUI";
-  var spacer = "\n";
-  var opener = "struct ContentView: View {";
-  return [imports, spacer, opener];
 };
