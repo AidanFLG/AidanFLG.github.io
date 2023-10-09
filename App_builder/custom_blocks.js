@@ -30,7 +30,9 @@ Blockly.Blocks['content_closer'] = {
 
 // Closes out content
 Blockly.JavaScript['content_closer'] = function(block) {
-  return '}'; 
+  var code = "\n\n";
+  code += "}";
+  return code;
 };
 
 
