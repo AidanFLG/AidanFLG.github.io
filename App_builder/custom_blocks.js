@@ -78,12 +78,11 @@ Blockly.Blocks['variable'] = {
 };
 
 Blockly.JavaScript['variable'] = function(block) {
-  var var_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE)
+  var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
   code += ("var " + var_name + " = " + var_value);
-  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];;
-};
+  return code; // Return the code as a string directly, no need for an array
 
 // Create a state variable block
 Blockly.Blocks['state_variable'] = {
