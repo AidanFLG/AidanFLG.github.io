@@ -41,9 +41,7 @@ Blockly.Blocks['var_body'] = {
   init: function() {
     this.appendDummyInput("BODY_NAME")
         .appendField("Create var body with name:")
-        .appendField(new Blockly.FieldTextInput("Enter body name"), "NAME");
-    this.appendStatementInput("BODY_CONTENT")
-        .setCheck(["Variable", "var_body"])
+    this.appendDummyInput("BODY_CONTENT")
         .appendField("Body Content");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
