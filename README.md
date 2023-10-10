@@ -3,7 +3,7 @@
 ### Tony Bautista
 ### Aidan Lewis-Grenz
 ### Jordan Silver
-### Thomas Kim
+
 
 we have been dealing with problems within the group so we now have two different sets of code. The DNA project which is the one we originally started, and the app development project. The DNA project includes all members while the app project doesn't include Thomas Kim.
 
