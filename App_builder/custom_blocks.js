@@ -65,9 +65,9 @@ Blockly.Blocks['variable'] = {
     this.appendDummyInput("VAR_NAME")
         .appendField("variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
-    this.appendValueInput("VAR_VALUE")
-        .setCheck(null)
+    this.appendDummyInput("VAR_VALUE")
         .appendField("Value:");
+        .appendField(new Blockly.FieldTextInput("Enter value"), "VALUE");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -79,7 +79,7 @@ Blockly.Blocks['variable'] = {
 
 Blockly.JavaScript['variable'] = function(block) {
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
-  var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
+  var var_value = block.getFieldValue('VALUE');
   var code = "\n";
   code += ("var " + var_name + " = " + var_value);
   return code; // Return the code as a string directly, no need for an array
@@ -94,9 +94,9 @@ Blockly.Blocks['state_variable'] = {
     this.appendDummyInput("VAR_NAME")
         .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
-    this.appendValueInput("VAR_VALUE")
-        .setCheck(null)
+    this.appendDummyInput("VAR_VALUE")
         .appendField("Value:");
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "VALUE");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -109,7 +109,7 @@ Blockly.Blocks['state_variable'] = {
 Blockly.JavaScript['state_variable'] = function(block) {
   var var_state = block.getFieldValue('STATE'); // Get the state value
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
-  var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
+  var var_value = block.getFieldValue('VALUE');
   var code = "\n";
   code += ("@state" + " " + var_state + " " + var_name + " = " + var_value);
   return [code, Blockly.JavaScript.ORDER_NONE];
