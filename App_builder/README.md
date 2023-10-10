@@ -4,7 +4,7 @@
 ### Aidan Lewis-Grenz
 ### Jordan Silver
 
-Motivation and Description: The motivation for this project is that there are a lot of apps being created nowadays but it isn't very easy and not many people understand not only how to build them but also how to use the language Swift. On top of that, it can be hard to get started on a new project. This project will help developers and new developers easily get started on projects as well as learn about how the Swift language works.
+Motivation and Description: The motivation for this project is that there are a lot of apps being created nowadays but it isn't very easy and not many people understand not only how to build them but also how to use the language Swift. On top of that, it can be hard to get started on a new project. This project will help developers and new developers easily get started on projects as well as learn about how the Swift language works. The goal is to give the user the choice between beginner level and experienced level. The beginner level will slowly allow you to create blocks and have more blocks appear as you go along making sure that you build your program correctly, giving you only access to blocks with will work with your code, rather than giving you access to all blocks. We hope that this will help an inexperienced user learn how to use Swift code and help them create their first project. For the experienced level, it will give you access to all blocks and will not help you or limit access to all the blocks.
 
 To start the program, click this link:
 [App Builder](https://AidanFLG.github.io/App_builder/)
