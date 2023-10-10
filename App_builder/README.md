@@ -9,7 +9,7 @@ Motivation and Description: The motivation for this project is that there are a 
 To start the program, click this link:
 [App Builder](https://AidanFLG.github.io/App_builder/)
 
-After creating something in the blockly code, you can save it and copy that code into a new Xcode project and it will create an app based off of your inputs in blockly.
+After creating something in the blockly code, you can download it using the "download swift" button to download a file with all the code you have generated. With this file, you can run it with Xcode and your application will be created.
 
 Relation to Parsing, Interpretation, and Compilation:
 
