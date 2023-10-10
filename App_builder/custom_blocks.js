@@ -83,6 +83,7 @@ Blockly.JavaScript['variable'] = function(block) {
   var code = "\n";
   code += ("var " + var_name + " = " + var_value);
   return code; // Return the code as a string directly, no need for an array
+};
 
 // Create a state variable block
 Blockly.Blocks['state_variable'] = {
