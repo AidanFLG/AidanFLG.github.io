@@ -2,7 +2,8 @@
 Blockly.Blocks['import_swiftui'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Import SwiftUI and Create ContentView")
+        .appendField("Import SwiftUI")
+    this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip("");
@@ -10,10 +11,28 @@ Blockly.Blocks['import_swiftui'] = {
   }
 };
 
-// Generate code button outputs:
+// Generates import in swift
 Blockly.JavaScript['import_swiftui'] = function(block) {
-  var code = "import SwiftUI;\n\n";
-  code += "struct ContentView: View {";
+  var code = "import SwiftUI\n";
+  return code;
+};
+
+// Create Content View
+Blockly.Blocks['create_contentview'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Create ContentView")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates content view in swift
+Blockly.JavaScript['create_contentview'] = function(block) {
+  var code = "struct ContentView: View {\n";
   return code;
 };
 
