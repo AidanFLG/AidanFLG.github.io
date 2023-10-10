@@ -53,12 +53,20 @@
         // Rebuild to download a text file that can be used for Xcode
         function runCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
-            try {
-                var output = eval(code);
-                document.getElementById('outputDiv').innerText = output;
-            } catch (e) {
-                document.getElementById('outputDiv').innerText = 'Error: ' + e;
-            }
+
+            // Create a Blob containing the generated code
+            var blob = new Blob([code], { type: 'text/plain' });
+
+            // Create a temporary anchor element for downloading
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'generated.swift'; // Set the desired filename
+
+            // Trigger the download
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
 
         function saveBlocks() {
