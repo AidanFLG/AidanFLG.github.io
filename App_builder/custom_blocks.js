@@ -2,7 +2,7 @@
 Blockly.Blocks['import_swiftui'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Import SwiftUI and Create ContentView");
+        .appendField("Import SwiftUI and Create ContentView")
     this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip("");
@@ -20,7 +20,7 @@ Blockly.JavaScript['import_swiftui'] = function(block) {
 Blockly.Blocks['content_closer'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Close Content");
+        .appendField("Close Content")
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
