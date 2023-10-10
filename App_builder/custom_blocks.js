@@ -112,7 +112,7 @@ Blockly.JavaScript['state_variable'] = function(block) {
   var var_value = Blockly.JavaScript.valueToCode(block, 'VAR_VALUE', Blockly.JavaScript.ORDER_NONE)
   var code = "\n";
   code += ("@state" + " " + var_state + " " + var_name + " = " + var_value);
-  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 // Create a variable block
@@ -130,7 +130,7 @@ Blockly.Blocks['user_variable'] = {
 
 Blockly.JavaScript['user_variable'] = function(block) {
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
-  var code = var_name;
+  var code = var_name
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
@@ -145,4 +145,10 @@ Blockly.Blocks['text_input'] = {
     this.setTooltip("Input a text value.");
     this.setHelpUrl("");
   }
+};
+
+Blockly.JavaScript['text_input'] = function(block) {
+  var var_name = block.getFieldValue('TEXT_VALUE'); // Get the variable name value
+  var code = var_name;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
