@@ -128,7 +128,7 @@ Blockly.Blocks['state_variable'] = {
   init: function() {
     this.appendDummyInput("VAR_STATE")
         .appendField("Public or Private:")
-        .appendField(new Blockly.FieldTextInput("public or private"), "STATE");
+        .appendField(new Blockly.FieldTextInput("public or private or "), "STATE");
     this.appendDummyInput("VAR_NAME")
         .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
