@@ -12,8 +12,29 @@ Blockly.Blocks['import_swiftui'] = {
 };
 
 // Generates import in swift
-Blockly.JavaScript['import_swiftui'] = function(block) {
+Blockly.JavaScript['import'] = function(block) {
   var code = "import SwiftUI\n";
+  return code;
+};
+
+// Import SwiftUI and create ContentView block
+Blockly.Blocks['import_swiftui'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Import")
+        .appendField(new Blockly.FieldTextInput("Enter import name"), "IMPORT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates import in swift
+Blockly.JavaScript['import_swiftui'] = function(block) {
+  var var_import = block.getFieldValue('IMPORT');
+  var code = "import " + var_import + "\n";
   return code;
 };
 
