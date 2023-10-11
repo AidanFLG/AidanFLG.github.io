@@ -304,6 +304,5 @@ Blockly.JavaScript['array_input'] = function(block) {
   // add something to add the blocks in between as text blocks/variable blocks that can each be a item in the array
   code = code + "]"
   return [code, Blockly.JavaScript.ORDER_NONE];
-  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
