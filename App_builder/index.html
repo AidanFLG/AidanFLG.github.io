@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>A Blockly DNA Generater</title>
+    <title>A Blockly DNA Generator</title>
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="custom_blocks.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -18,18 +18,23 @@
     <div class="row">
         <div id="blocklyDiv" class="full-width"></div>
         <xml id="toolbox" style="display: none">
-            <block type="import_swiftui"></block>
-            <block type="create_contentview"></block>
-            <block type="var_body"></block>
-            <block type="variable"></block>
-            <block type="user_variable"></block>
-            <block type="state_variable"></block>
-            <block type="text_input"></block>
-            <block type="content_closer"></block>
-            <block type="list_input"></block>
-            <block type="list_item"></block>
-            <block type="array_input"></block>
-            <block type="array_item"></block>
+            <category name="SwiftUI" colour="#5CA7A3">
+                <block type="import_swiftui"></block>
+                <block type="create_contentview"></block>
+                <block type="var_body"></block>
+                <block type="variable"></block>
+                <block type="user_variable"></block>
+                <block type="state_variable"></block>
+                <block type="text_input"></block>
+            </category>
+            <category name="Lists" colour="#FF7F50">
+                <block type="list_input"></block>
+                <block type="list_item"></block>
+            </category>
+            <category name="Arrays" colour="#FFA500">
+                <block type="array_input"></block>
+                <block type="array_item"></block>
+            </category>
         </xml>
     </div>
     <div class="row button-row">
@@ -67,7 +72,7 @@
             a.download = 'generated.swift'; // Set the desired filename
 
             // Trigger the download
-            a.style.display = 'none';
+            a.style display = 'none';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
