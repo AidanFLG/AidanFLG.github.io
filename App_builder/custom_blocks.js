@@ -195,114 +195,158 @@ Blockly.JavaScript['text_input'] = function(block) {
 Blockly.Blocks['list_input'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("@State or none:")
-        .appendField(new Blockly.FieldTextInput(""), "STATE");
+      .appendField("@State or none:")
+      .appendField(new Blockly.FieldTextInput(''), 'STATE');
     this.appendDummyInput()
-        .appendField("public, private, or none:")
-        .appendField(new Blockly.FieldTextInput(""), "PPN");
+      .appendField('public, private, or none:')
+      .appendField(new Blockly.FieldTextInput(''), 'PPN');
     this.appendDummyInput()
-        .appendField("var or let :")
-        .appendField(new Blockly.FieldTextInput("var or let"), "VORL");
+      .appendField('var or let:')
+      .appendField(new Blockly.FieldTextInput('var or let'), 'VORL');
     this.appendDummyInput()
-        .appendField("array name: ")
-        .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
+      .appendField('list name:')
+      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME');
     this.appendDummyInput()
-        .appendField(": or =")
-        .appendField(new Blockly.FieldTextInput("Enter : or ="), "EQUALS");
-    if (block.getFieldValue('EQUALS') = ":"){
+      .appendField(': or =')
+      .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
+    if (block.getFieldValue('EQUALS') === ':') {
       this.appendDummyInput()
-        .appendField("group name: ")
-        .appendField(new Blockly.FieldTextInput("Enter name"), "GROUP_NAME");
+        .appendField('group name:')
+        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
     }
-    this.appendValueInput()
-        .appendField("insert blocks as items in array")
-    this.setOutput(true, "String");
-    this.setColour(430);
-    this.setTooltip("Create a list");
-    this.setHelpUrl("");
+    this.appendStatementInput('ITEMS')
+      .setCheck('List_Item')
+      .appendField('insert blocks as items in list');
+    this.setOutput(true, 'List');
+    this.setColour(230);
+    this.setTooltip('Create a List');
+    this.setHelpUrl('');
   }
 };
 
-Blockly.JavaScript['list_input'] = function(block) {
-  var var_value = block.getFieldValue('NAME'); // Get the variable name
-  var var_state = block.getFieldValue('STATE'); // Get the variable state
-  var var_ppn = block.getFieldValue('PPN'); // Get the variable state
-  var var_vorl = block.getFieldValue('VORL'); // Get the var or let
-  var var_eq = block.getFieldValue('EQUALS'); // Get the equals
-  var var_group_name = block.getFieldValue('GROUP_NAME'); // Get the equals
-  var code = ""
-  if (var_state != ""){
-    code = code + var_state + " "
+Blockly.Blocks['list_item'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField('Item:');
+    this.appendValueInput('ITEM')
+      .setCheck(null);
+    this.setPreviousStatement(true, 'List_Item');
+    this.setNextStatement(true, 'List_Item');
+    this.setColour(60);
+    this.setTooltip('List item');
+    this.setHelpUrl('');
   }
-  if (var_ppn != ""){
-    code = code + var_ppn + " "
+};
+
+Blockly.JavaScript['list_input'] = function (block) {
+  var var_state = block.getFieldValue('STATE');
+  var var_ppn = block.getFieldValue('PPN');
+  var var_vorl = block.getFieldValue('VORL');
+  var var_name = block.getFieldValue('NAME');
+  var var_equals = block.getFieldValue('EQUALS');
+  var var_group_name = block.getFieldValue('GROUP_NAME');
+  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS');
+  
+  var code = '';
+  if (var_state) {
+    code += var_state + ' ';
   }
-  if (var_eq = "=")
-    code = code + "=" + " "
-  }else{
-    code = code + ":" + " " + var_group_name;
+  if (var_ppn) {
+    code += var_ppn + ' ';
   }
-  code = code + "("
-  // add something to add the blocks in between as text blocks/variable blocks that can each be a item in the list
-  code = code + ")"
+  code += var_vorl + ' ' + var_name + ' ' + var_equals + ' ';
+
+  if (var_equals === ':') {
+    code += var_group_name + ' ';
+  }
+  
+  code += '[' + items + ']';
+  
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['list_item'] = function (block) {
+  var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
+  return item;
+};
 
 // Create an array block
 Blockly.Blocks['array_input'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("@State or none:")
-        .appendField(new Blockly.FieldTextInput(""), "STATE");
+      .appendField("@State or none:")
+      .appendField(new Blockly.FieldTextInput(''), 'STATE');
     this.appendDummyInput()
-        .appendField("public, private, or none:")
-        .appendField(new Blockly.FieldTextInput(""), "PPN");
+      .appendField('public, private, or none:')
+      .appendField(new Blockly.FieldTextInput(''), 'PPN');
     this.appendDummyInput()
-        .appendField("var or let :")
-        .appendField(new Blockly.FieldTextInput("var or let"), "VORL");
+      .appendField('var or let:')
+      .appendField(new Blockly.FieldTextInput('var or let'), 'VORL');
     this.appendDummyInput()
-        .appendField("array name: ")
-        .appendField(new Blockly.FieldTextInput("Enter name"), "NAME");
+      .appendField('array name:')
+      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME');
     this.appendDummyInput()
-        .appendField(": or =")
-        .appendField(new Blockly.FieldTextInput("Enter : or ="), "EQUALS");
-    if (block.getFieldValue('EQUALS') = ":"){
+      .appendField(': or =')
+      .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
+    // Create an input for group name only if EQUALS is ":"
+    if (block.getFieldValue('EQUALS') === ':') {
       this.appendDummyInput()
-        .appendField("group name: ")
-        .appendField(new Blockly.FieldTextInput("Enter name"), "GROUP_NAME");
+        .appendField('group name:')
+        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
     }
-    this.appendValueInput()
-        .appendField("insert blocks as items in array")
-    this.setOutput(true, "String");
-    this.setColour(430);
-    this.setTooltip("Create a Array");
-    this.setHelpUrl("");
+    this.appendStatementInput('ITEMS')
+      .setCheck('Array_Item')
+      .appendField('insert blocks as items in array');
+    this.setOutput(true, 'Array');
+    this.setColour(230);
+    this.setTooltip('Create an Array');
+    this.setHelpUrl('');
   }
 };
 
-Blockly.JavaScript['array_input'] = function(block) {
-  var var_value = block.getFieldValue('NAME'); // Get the variable name
-  var var_state = block.getFieldValue('STATE'); // Get the variable state
-  var var_ppn = block.getFieldValue('PPN'); // Get the variable state
-  var var_vorl = block.getFieldValue('VORL'); // Get the var or let
-  var var_eq = block.getFieldValue('EQUALS'); // Get the equals
-  var var_group_name = block.getFieldValue('GROUP_NAME'); // Get the equals
-  var code = ""
-  if (var_state != ""){
-    code = code + var_state + " "
+Blockly.Blocks['array_item'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField('Item:');
+    this.appendValueInput('ITEM')
+      .setCheck(null);
+    this.setPreviousStatement(true, 'Array_Item');
+    this.setNextStatement(true, 'Array_Item');
+    this.setColour(60);
+    this.setTooltip('Array item');
+    this.setHelpUrl('');
   }
-  if (var_ppn != ""){
-    code = code + var_ppn + " "
+};
+
+Blockly.JavaScript['array_input'] = function (block) {
+  var var_state = block.getFieldValue('STATE');
+  var var_ppn = block.getFieldValue('PPN');
+  var var_vorl = block.getFieldValue('VORL');
+  var var_name = block.getFieldValue('NAME');
+  var var_equals = block.getFieldValue('EQUALS');
+  var var_group_name = block.getFieldValue('GROUP_NAME');
+  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS');
+  
+  var code = '';
+  if (var_state) {
+    code += var_state + ' ';
   }
-  if (var_eq = "=")
-    code = code + "=" + " "
-  }else{
-    code = code + ":" + " " + var_group_name
+  if (var_ppn) {
+    code += var_ppn + ' ';
   }
-  code = code + "["
-  // add something to add the blocks in between as text blocks/variable blocks that can each be a item in the array
-  code = code + "]"
+  code += var_vorl + ' ' + var_name + ' ' + var_equals + ' ';
+
+  if (var_equals === ':') {
+    code += var_group_name + ' ';
+  }
+  
+  code += '[' + items + ']';
+  
   return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['array_item'] = function (block) {
+  var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
+  return item;
 };
 
