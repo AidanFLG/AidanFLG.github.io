@@ -59,9 +59,13 @@ body, html {
 }
 
 /* Ensure blocks can be moved and are not obscured */
-.blocklyWorkspace {
+/*.blocklyWorkspace {
     position: relative;
     z-index: 0;
+} */
+
+.blocklyWorkspace .blocklyBlock {
+    margin-bottom: 8px; /* Adjust the value to set the desired padding */
 }
 
 /* Optionally, add a border to blocks for visual separation */
