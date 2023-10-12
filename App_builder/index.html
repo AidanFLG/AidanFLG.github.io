@@ -43,6 +43,7 @@
         </xml>
     </div>
     <div class="row button-row">
+        <button onclick="startBlockly()">Start Blockly</button>
         <button onclick="generateCode()">Generate Swift</button>
         <button onclick="runCode()">Download Swift</button>
         <button onclick="saveBlocks()">Save Blocks</button>
@@ -54,30 +55,25 @@
         <div id="outputDiv" class="half-width"></div>
     </div>
     <script>
-        var workspace = Blockly.inject('blocklyDiv', {
-            toolbox: document.getElementById('toolbox'),
-            scrollbars: true
-        });
+        function startBlockly() {
+            var workspace = Blockly.inject('blocklyDiv', {
+                toolbox: document.getElementById('toolbox'),
+                scrollbars: true
+            });
+        }
 
         function generateCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             document.getElementById('codeDiv').innerText = code;
         }
 
-        // Rebuild to download a text file that can be used for Xcode
         function runCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
-
-            // Create a Blob containing the generated code
             var blob = new Blob([code], { type: 'text/plain' });
-
-            // Create a temporary anchor element for downloading
             var a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = 'generated.swift'; // Set the desired filename
-
-            // Trigger the download
-            a.style display = 'none';
+            a.download = 'generated.swift';
+            a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -86,7 +82,7 @@
         function saveBlocks() {
             var xml = Blockly.Xml.workspaceToDom(workspace);
             var xmlText = Blockly.Xml.domToPrettyText(xml);
-            var blob = new Blob([xmlText], {type: 'text/xml'});
+            var blob = new Blob([xmlText], { type: 'text/xml' });
             var a = document.createElement('a');
             a.download = 'blocks.xml';
             a.href = URL.createObjectURL(blob);
@@ -100,13 +96,12 @@
         function loadBlocksFile(event) {
             var file = event.target.files[0];
             var reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 var xml = Blockly.utils.xml.textToDom(e.target.result);
                 Blockly.Xml.appendDomToWorkspace(xml, workspace);
             };
             reader.readAsText(file);
         }
-
     </script>
 </body>
 </html>
