@@ -24,7 +24,6 @@ body, html {
 }
 
 #blocklyButtons {
-    flex-basis: 100%; /* Take up full width */
     display: flex;
     justify-content: space-between;
     height: auto; /* Adjust as needed */
@@ -38,13 +37,13 @@ body, html {
 
 /* Style for the category tabs (toolbox) */
 .toolbox-tab {
-    background-color: #2196F3; /* Set the background color */
-    color: white; /* Set the text color */
-    padding: 5px 20px; /* Adjust padding for a horizontal layout */
-    margin: 2px; /* Remove the vertical margin */
-    cursor: pointer; /* Change the cursor on hover to indicate interactivity */
-    transition: background-color 0.3s; /* Add a smooth transition */
-    display: inline-block; /* Display the tabs inline */
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 20px;
+    margin: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
 }
 
 .toolbox-tab.toolbox-tab-selected {
@@ -61,7 +60,7 @@ body, html {
     z-index: 0;
 }
 
-/* Optionally, add a border to blocks for a visual separation */
+/* Optionally, add a border to blocks for visual separation */
 .blocklyBlock {
     border: 1px solid #000;
     border-radius: 5px;
@@ -75,10 +74,6 @@ body, html {
 ::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-track {
