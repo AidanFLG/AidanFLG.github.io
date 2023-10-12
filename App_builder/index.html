@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>A Blockly DNA Generator</title>
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="custom_blocks.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
     <div>
         <p>
@@ -18,9 +20,8 @@
     <div class="start-buttons">
         <button onclick="startBlockly()">Start Blockly</button>
     </div>
-    <div class="row" style="display: none;" id="blocklyDivContainer">
-        <div id="blocklyDiv" class="full-width"></div>
-        <xml id="toolbox" style="display: none">
+    <div class="blockly-top-tabs">
+        <div id="toolbox-top" style="display: none">
             <category name="SwiftUI" colour="#5CA7A3">
                 <block type="import_swiftui"></block>
                 <block type="create_contentview"></block>
@@ -43,7 +44,10 @@
                 <block type="array_input"></block>
                 <block type="array_item"></block>
             </category>
-        </xml>
+        </div>
+    </div>
+    <div class="row" style="display: none;" id="blocklyDivContainer">
+        <div id="blocklyDiv" class="full-width"></div>
     </div>
     <div class="row button-row" style="display: none;" id="blocklyButtons">
         <button onclick="generateCode()">Generate Swift</button>
@@ -66,7 +70,7 @@
             document.querySelector('#blocklyResult').style.display = 'block';
 
             workspace = Blockly.inject('blocklyDiv', {
-                toolbox: document.getElementById('toolbox'),
+                toolbox: document.getElementById('toolbox-top'), // Use the modified toolbox
                 scrollbars: true
             });
         }
@@ -82,7 +86,7 @@
             var a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = 'generated.swift';
-            a.style.display = 'none';
+            a.style display = 'none';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -105,7 +109,7 @@
         function loadBlocksFile(event) {
             var file = event.target.files[0];
             var reader = new FileReader();
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 var xml = Blockly.utils.xml.textToDom(e.target.result);
                 Blockly.Xml.appendDomToWorkspace(xml, workspace);
             };
@@ -113,4 +117,5 @@
         }
     </script>
 </body>
+
 </html>
