@@ -10,12 +10,15 @@
     <div>
         <p>
             <a href="https://github.com/AidanFLG/App_builder/tree/main/App_builder" target="_blank">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="20" height="20">
-            View Source on GitHub
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="20" height="20">
+                View Source on GitHub
             </a>
         </p>
     </div>
-    <div class="row">
+    <div class="start-buttons">
+        <button onclick="startBlockly()">Start Blockly</button>
+    </div>
+    <div class="row" style="display: none;" id="blocklyDivContainer">
         <div id="blocklyDiv" class="full-width"></div>
         <xml id="toolbox" style="display: none">
             <category name="SwiftUI" colour="#5CA7A3">
@@ -42,21 +45,27 @@
             </category>
         </xml>
     </div>
-    <div class="row button-row">
-        <button onclick="startBlockly()">Start Blockly</button>
+    <div class="row button-row" style="display: none;" id="blocklyButtons">
         <button onclick="generateCode()">Generate Swift</button>
         <button onclick="runCode()">Download Swift</button>
         <button onclick="saveBlocks()">Save Blocks</button>
         <button onclick="loadBlocks()">Load Blocks</button>
         <input type="file" id="loadInput" style="display: none;" onchange="loadBlocksFile(event)">
     </div>
-    <div class="row">
+    <div class="row" style="display: none;" id="blocklyResult">
         <div id="codeDiv" class="half-width"></div>
         <div id="outputDiv" class="half-width"></div>
     </div>
     <script>
+        var workspace;
+
         function startBlockly() {
-            var workspace = Blockly.inject('blocklyDiv', {
+            document.querySelector('.start-buttons').style.display = 'none';
+            document.querySelector('#blocklyDivContainer').style.display = 'block';
+            document.querySelector('#blocklyButtons').style.display = 'block';
+            document.querySelector('#blocklyResult').style.display = 'block';
+
+            workspace = Blockly.inject('blocklyDiv', {
                 toolbox: document.getElementById('toolbox'),
                 scrollbars: true
             });
