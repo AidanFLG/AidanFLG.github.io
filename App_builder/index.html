@@ -5,14 +5,6 @@
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="custom_blocks.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-        .start-button {
-            font-size: 20px; /* Adjust the font size for button text */
-            padding: 10px 20px; /* Add padding to increase the button size */
-            display: block; /* Make it a block element for centering */
-            margin: 0 auto; /* Center the button horizontally */
-        }
-    </style>
 </head>
 <body>
     <div>
@@ -24,12 +16,7 @@
         </p>
     </div>
     <div class="start-buttons">
-        <!-- Make "Start Blockly" button bigger and centered -->
-        <button id="startButton" class="start-button" onclick="startBlockly()">Start Blockly</button>
-    </div>
-    <div class="start-buttons">
-        <!-- Add "New User" button for Swift UI category -->
-        <button id="newUserButton" class="start-button" onclick="startNewUserBlockly()">New User</button>
+        <button onclick="startBlockly()">Start Blockly</button>
     </div>
     <div class="row" style="display: none;" id="blocklyDivContainer">
         <div id="blocklyDiv" class="full-width"></div>
@@ -55,14 +42,6 @@
             <category name="Arrays" colour="#FFA500">
                 <block type="array_input"></block>
                 <block type="array_item"></block>
-            </category>
-        </xml>
-        <!-- Define toolbox for "New User" button -->
-        <xml id="newUserToolbox" style="display: none">
-            <category name="SwiftUI" colour="#5CA7A3">
-                <block type="import_swiftui"></block>
-                <block type="create_contentview"></block>
-                <!-- Add other Swift UI blocks here -->
             </category>
         </xml>
     </div>
@@ -92,18 +71,6 @@
             });
         }
 
-        function startNewUserBlockly() {
-            // Set up Blockly for "New User" with limited categories
-            workspace = Blockly.inject('blocklyDiv', {
-                toolbox: document.getElementById('newUserToolbox'),
-                scrollbars: true
-            });
-            document.querySelector('.start-buttons').style.display = 'none';
-            document.querySelector('#blocklyDivContainer').style.display = 'block';
-            document.querySelector('#blocklyButtons').style.display = 'block';
-            document.querySelector('#blocklyResult').style.display = 'block';  // Fix here, added "style"
-        }
-
         function generateCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             document.getElementById('codeDiv').innerText = code;
@@ -124,13 +91,12 @@
         function saveBlocks() {
             var xml = Blockly.Xml.workspaceToDom(workspace);
             var xmlText = Blockly.Xml.domToPrettyText(xml);
-            var blob = a Blob([xmlText], { type: 'text/xml' });
+            var blob = new Blob([xmlText], { type: 'text/xml' });
             var a = document.createElement('a');
             a.download = 'blocks.xml';
             a.href = URL.createObjectURL(blob);
             a.click();
         }
-
 
         function loadBlocks() {
             document.getElementById('loadInput').click();
