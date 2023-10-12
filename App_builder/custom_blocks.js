@@ -210,7 +210,7 @@ Blockly.JavaScript['text_input'] = function(block) {
 };
 
 // Create a list block
-Blockly.Blocks['list_input'] = {
+/* Blockly.Blocks['list_input'] = {
   init: function() {
     this.appendDummyInput()
       .appendField("@State or none:")
@@ -367,4 +367,4 @@ Blockly.JavaScript['array_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
-
+*/
