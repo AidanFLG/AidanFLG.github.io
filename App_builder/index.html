@@ -86,7 +86,7 @@
             var a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = 'generated.swift';
-            a.style display = 'none';
+            a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
