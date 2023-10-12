@@ -16,7 +16,12 @@
         </p>
     </div>
     <div class="start-buttons">
-        <button onclick="startBlockly()">Start Blockly</button>
+        <!-- Make "Start Blockly" button bigger and centered -->
+        <button id="startButton" class="start-button" onclick="startBlockly()">Start Blockly</button>
+    </div>
+    <div class="start-buttons">
+        <!-- Add "New User" button for Swift UI category -->
+        <button id="newUserButton" class="start-button" onclick="startNewUserBlockly()">New User</button>
     </div>
     <div class="row" style="display: none;" id="blocklyDivContainer">
         <div id="blocklyDiv" class="full-width"></div>
@@ -44,6 +49,14 @@
                 <block type="array_item"></block>
             </category>
         </xml>
+        <!-- Define toolbox for "New User" button -->
+        <xml id="newUserToolbox" style="display: none">
+            <category name="SwiftUI" colour="#5CA7A3">
+                <block type="import_swiftui"></block>
+                <block type="create_contentview"></block>
+                <!-- Add other Swift UI blocks here -->
+            </category>
+        </xml>
     </div>
     <div class="row button-row" style="display: none;" id="blocklyButtons">
         <button onclick="generateCode()">Generate Swift</button>
@@ -69,6 +82,18 @@
                 toolbox: document.getElementById('toolbox'),
                 scrollbars: true
             });
+        }
+
+        function startNewUserBlockly() {
+            // Set up Blockly for "New User" with limited categories
+            workspace = Blockly.inject('blocklyDiv', {
+                toolbox: document.getElementById('newUserToolbox'),
+                scrollbars: true
+            });
+            document.querySelector('.start-buttons').style.display = 'none';
+            document.querySelector('#blocklyDivContainer').style.display = 'block';
+            document.querySelector('#blocklyButtons').style.display = 'block';
+            document.querySelector('#blocklyResult').style display = 'block';
         }
 
         function generateCode() {
