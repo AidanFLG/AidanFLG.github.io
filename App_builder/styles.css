@@ -46,6 +46,10 @@ body, html {
     display: inline-block;
 }
 
+.blocklyToolboxDiv .blocklyTreeRow {
+    padding: 4px 0;
+}
+
 .toolbox-tab.toolbox-tab-selected {
     background-color: #1976D2;
 }
