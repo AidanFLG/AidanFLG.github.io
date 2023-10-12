@@ -5,45 +5,77 @@ body, html {
     display: flex;
     flex-direction: column;
 }
-.row {
+
+/* Improve overall layout */
+#blocklyDivContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#blocklyDiv {
+    flex: 1;
+    min-width: 50%;
+    max-width: 70%; /* Adjust as needed */
+    height: 100%;
+    overflow: auto;
+    background-color: #f0f0f0;
+}
+
+#blocklyButtons {
+    flex-basis: 100%; /* Take up full width */
     display: flex;
     justify-content: space-between;
-    height: 50vh; /* Take up half the height of the viewport */
+    height: auto; /* Adjust as needed */
 }
-.full-width {
-    width: 100%;
-    height: 100%; /* Take up all the height of its parent */
-    max-height: 600px;
-    overflow: auto; /* Add a scrollbar when necessary */
-    background-color: #f0f0f0; /* Light grey background to make it visible */
-}
-.half-width {
-    width: 49%;
-    height: 200px;
-    border: 1px solid black;
-    padding: 10px;
-    overflow: auto;
-}
+
 .button-row {
-    height: 50px; /* or whatever height you want */
-    justify-content: flex-start;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
-/* Style for Blockly toolbox tabs */
+/* Improved toolbox tabs style */
 .toolbox-tab {
-    background-color: #2196F3; /* Set the background color */
-    color: white; /* Set the text color */
-    padding: 5px 10px; /* Add some padding */
-    margin: 2px 0; /* Add margins to separate tabs */
-    cursor: pointer; /* Change the cursor on hover to indicate interactivity */
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 10px;
+    margin: 2px 0;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add a smooth transition */
 }
 
-/* Style for the selected tab */
 .toolbox-tab.toolbox-tab-selected {
-    background-color: #1976D2; /* Change the background color for the selected tab */
+    background-color: #1976D2;
 }
 
-/* Optional hover effect */
 .toolbox-tab:hover {
     background-color: #1976D2;
+}
+
+/* Ensure blocks can be moved and are not obscured */
+.blocklyWorkspace {
+    position: relative;
+    z-index: 0;
+}
+
+/* Optionally, add a border to blocks for a visual separation */
+.blocklyBlock {
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+/* Customize scrollbars as needed */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
