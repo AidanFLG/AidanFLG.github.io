@@ -1,3 +1,21 @@
+// Start the interface with two options
+Blockly.Blocks['choice_block'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Choose Option:");
+        this.appendStatementInput('OPTION1')
+            .setCheck(null)
+            .appendField("New user");
+        this.appendStatementInput('OPTION2')
+            .setCheck(null)
+            .appendField("Knowledgeable user");
+        this.setColour(230);
+        this.setTooltip("Choose an option.");
+        this.setPreviousStatement(false, null);
+        this.setNextStatement(true, null);
+    }
+};
+
 // Import SwiftUI and create ContentView block
 Blockly.Blocks['import_swiftui'] = {
   init: function() {
