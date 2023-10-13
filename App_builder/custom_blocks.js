@@ -123,6 +123,7 @@ Blockly.JavaScript['variable'] = function(block) {
   return code; // Return the code as a string directly, no need for an array
 };
 
+
 // Create a state variable block
 Blockly.Blocks['state_variable'] = {
   init: function() {
@@ -139,50 +140,19 @@ Blockly.Blocks['state_variable'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(60);
-    this.setTooltip("Create a state variable");
+    this.setTooltip("Create a variable");
     this.setHelpUrl("");
   }
 };
 
-Blockly.JavaScript['state_variable'] = function(block) {
+// Blockly.JavaScript['state_variable'] = function(block) {
   var var_state = block.getFieldValue('STATE'); // Get the state value
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = block.getFieldValue('VALUE'); // Get the variable value
   var code = "\n";
-  code += "@" + (var_state ? var_state + " " : "") + "State var " + var_name + " = " + var_value;
+  code += "@state " + var_state + " " + var_name + " = " + var_value;
   return code; // Return the code as a string directly, no need for an array
 };
-
-
-// // Create a state variable block
-// Blockly.Blocks['state_variable'] = {
-//   init: function() {
-//     this.appendDummyInput("VAR_STATE")
-//         .appendField("Public or Private:")
-//         .appendField(new Blockly.FieldTextInput("public or private or "), "STATE");
-//     this.appendDummyInput("VAR_NAME")
-//         .appendField("state variable named:")
-//         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
-//     this.appendDummyInput("VAR_VALUE")
-//         .appendField("Value:")
-//         .appendField(new Blockly.FieldTextInput("Enter value"), "VALUE");
-//     this.setInputsInline(true);
-//     this.setPreviousStatement(true, null);
-//     this.setNextStatement(true, null);
-//     this.setColour(60);
-//     this.setTooltip("Create a variable");
-//     this.setHelpUrl("");
-//   }
-// };
-
-// Blockly.JavaScript['state_variable'] = function(block) {
-//   var var_state = block.getFieldValue('STATE'); // Get the state value
-//   var var_name = block.getFieldValue('NAME'); // Get the variable name value
-//   var var_value = block.getFieldValue('VALUE'); // Get the variable value
-//   var code = "\n";
-//   code += "@state " + var_state + " " + var_name + " = " + var_value;
-//   return code; // Return the code as a string directly, no need for an array
-// };
 
 // Create a variable block
 Blockly.Blocks['user_variable'] = {
