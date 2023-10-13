@@ -127,9 +127,6 @@ Blockly.JavaScript['variable'] = function(block) {
 // Create a state variable block
 Blockly.Blocks['state_variable'] = {
   init: function() {
-    this.appendDummyInput("VAR_STATE")
-        .appendField("Public or Private:")
-        .appendField(new Blockly.FieldTextInput("public or private or "), "STATE");
     this.appendDummyInput("VAR_NAME")
         .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
@@ -146,7 +143,6 @@ Blockly.Blocks['state_variable'] = {
 };
 
 Blockly.JavaScript['state_variable'] = function(block) {
-  var var_state = block.getFieldValue('STATE'); // Get the state value
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = block.getFieldValue('VALUE'); // Get the variable value
   var code = "\n";
