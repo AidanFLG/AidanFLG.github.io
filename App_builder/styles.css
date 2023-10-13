@@ -1,87 +1,89 @@
-/* Base styling */
+/* Ensure the body and html have a standard height and no default margins or padding */
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Arial', sans-serif;  /* Set a standard font for better readability */
 }
 
+/* Establish layout properties for the Blockly container */
 #blocklyDivContainer {
     display: flex;
-    flex-wrap: nowrap;  /* Prevent wrapping for better layout consistency */
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 100vh;
-    padding: 15px;  /* Add some padding for a more spacious look */
-    background-color: #fafafa;  /* Light gray background for contrast */
+    height: 100vh; /* occupy full viewport height */
 }
 
+/* Style the main Blockly area where blocks are dragged and connected */
 #blocklyDiv {
     flex: 1;
     min-width: 50%;
-    max-width: 70%;
+    max-width: 70%; /* limits the width between 50% to 70% of parent's width */
     height: 100%;
-    overflow: auto;
-    background-color: #ffffff;  /* Use a white background for better block visibility */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    overflow: auto; /* adds scroll if content exceeds its container */
+    background-color: #f0f0f0;
 }
 
+/* Style the container for Blockly action buttons */
 #blocklyButtons {
     display: flex;
     justify-content: space-between;
-    align-items: center;  /* Align items vertically for better presentation */
-    padding: 10px 0;
+    height: auto; /* take only necessary space */
 }
 
+/* Ensures buttons inside the container are spaced out */
 .button-row {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
 }
 
+/* Styling for the tabs (categories) in the Blockly toolbox */
 .toolbox-tab {
     background-color: #2196F3;
-    color: #ffffff;
-    padding: 8px 24px;  /* Increased padding for a more clickable feel */
-    margin: 0 4px;  /* Even spacing on left and right for better alignment */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;  /* Added transform transition */
+    color: white;
+    padding: 5px 20px;
+    margin: 2px;
+    cursor: pointer; /* indicate clickable */
+    transition: background-color 0.3s; /* smooth color transition */
     display: inline-block;
-    border-radius: 4px;  /* Rounded corners for a modern look */
 }
 
+/* Additional padding for each tree row in the Blockly toolbox */
 .blocklyToolboxDiv .blocklyTreeRow {
-    padding: 6px 12px;  /* Increased padding for a better touch feel */
+    padding: 4px 0;
 }
 
-.toolbox-tab.toolbox-tab-selected, .toolbox-tab:hover {
+/* Change the tab color when it's selected */
+.toolbox-tab.toolbox-tab-selected {
     background-color: #1976D2;
-    transform: scale(1.05);  /* Slight increase in size for a dynamic feel on hover/select */
 }
 
+/* Change the tab color on hover */
+.toolbox-tab:hover {
+    background-color: #1976D2;
+}
+
+/* Modify the margin to adjust space between individual blocks */
 .blocklyWorkspace .blocklyBlock {
-    margin-bottom: 10px; 
+    margin-bottom: 8px; 
 }
 
+/* Add a border for visual separation between blocks */
 .blocklyBlock {
-    border: 1px solid rgba(0, 0, 0, 0.2);  /* Lighter border for a softer look */
-    border-radius: 6px;
-    transition: box-shadow 0.3s;  /* Transition for shadows */
+    border: 1px solid #000;
+    border-radius: 5px; /* rounded corners */
 }
 
-.blocklyBlock:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Shadow on hover for a dynamic feel */
-}
-
-/* Scrollbar styles */
+/* Custom style for webkit scrollbars */
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #bbb;
-    border-radius: 6px;
+    background-color: #555;
+    border-radius: 6px; /* rounded corners */
 }
 
 ::-webkit-scrollbar-track {
