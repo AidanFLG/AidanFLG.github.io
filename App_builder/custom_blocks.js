@@ -71,8 +71,7 @@ Blockly.Blocks['content_closer'] = {
 
 // Closes out content
 Blockly.JavaScript['content_closer'] = function(block) {
-  var code = "\n\n";
-  code += "}";
+  var code = "\n}\n";
   return code;
 };
 
@@ -92,8 +91,7 @@ Blockly.Blocks['var_body'] = {
 };
 
 Blockly.JavaScript['var_body'] = function(block) {
-  var code = "\n\n";
-  code += "var body: some View{";
+  var code = "\nvar body: some View {\n";
   return code;
 };
 
@@ -266,37 +264,45 @@ Blockly.JavaScript['list_item'] = function (block) {
 // Create an array block
 Blockly.Blocks['array_input'] = {
   init: function() {
+    // Create the initial input fields and drop-down for the block
     this.appendDummyInput()
-      .appendField("@State or none:")
-      .appendField(new Blockly.FieldTextInput(''), 'STATE');
-    this.appendDummyInput()
-      .appendField('public, private, or none:')
-      .appendField(new Blockly.FieldTextInput(''), 'PPN');
-    this.appendDummyInput()
-      .appendField('var or let:')
-      .appendField(new Blockly.FieldTextInput('var or let'), 'VORL');
-    this.appendDummyInput()
-      .appendField('array name:')
-      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME');
-    this.appendDummyInput()
-      .appendField(': or =')
-      .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
-    // Create an input for group name only if EQUALS is ":"
+        .appendField("Array")
+        .appendField(new Blockly.FieldDropdown([["=", "="], [":", ":"]]), "EQUALS");
 
-    if (this.getFieldValue('EQUALS') === ':') {
-      this.appendDummyInput()
-        .appendField('group name:')
-        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
-    }
-    this.appendStatementInput('ITEMS')
-      .setCheck('Array_Item')
-      .appendField('insert blocks as items in array');
-    this.setOutput(true, 'Array');
+    this.setOutput(true, null);
     this.setColour(230);
-    this.setTooltip('Create an Array');
-    this.setHelpUrl('');
+    this.setTooltip("");
+    this.setHelpUrl("");
+
+    this.updateShape_(); // Call this to ensure the block shape is correct initially
+  },
+  
+  updateShape_: function() {
+    // Check if we have the group name input
+    var inputExists = this.getInput('GROUP_NAME_INPUT');
+    // Check the current value of EQUALS
+    var equalsValue = this.getFieldValue('EQUALS');
+    
+    // Add the input if EQUALS is ":" and it doesn't exist
+    if (equalsValue === ':' && !inputExists) {
+      this.appendDummyInput('GROUP_NAME_INPUT')
+          .appendField('group name:')
+          .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
+    }
+    // Remove the input if EQUALS is not ":" and it exists
+    else if (equalsValue !== ':' && inputExists) {
+      this.removeInput('GROUP_NAME_INPUT');
+    }
+  },
+  
+  onchange: function(event) {
+    // Only update the shape if the actual block changed is this one
+    if (event.blockId === this.id) {
+      this.updateShape_();
+    }
   }
 };
+
 
 Blockly.Blocks['array_item'] = {
   init: function() {
