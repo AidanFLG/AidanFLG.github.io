@@ -38,42 +38,71 @@ Blockly.JavaScript['import'] = function(block) {
   return code;
 };
 
+
+
 // Create Content View
-Blockly.Blocks['create_contentview'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Create ContentView")
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
+Blockly.Blocks['content_view_structure'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Content View Structure");
+
+        this.appendStatementInput("CONTENT")
+            .setCheck(null)
+            .appendField("Content");
+
+        this.setColour(230);
+        this.setTooltip('This block creates a content view structure with opening and closing functionalities.');
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+    }
 };
 
-// Generates content view in swift
-Blockly.JavaScript['create_contentview'] = function(block) {
-  var code = "struct ContentView: View {\n";
-  return code;
+Blockly.Swift['content_view_structure'] = function(block) {
+    var contentCode = Blockly.Swift.statementToCode(block, 'CONTENT');
+
+    var code = 'let contentView = UIView()\n';
+    code += contentCode;
+    code += 'self.view.addSubview(contentView)\n';
+
+    return code;
 };
 
-Blockly.Blocks['content_closer'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Close Content")
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
+// Create Content View
+// Blockly.Blocks['create_contentview'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("Create ContentView")
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
 
-// Closes out content
-Blockly.JavaScript['content_closer'] = function(block) {
-  var code = "\n}\n";
-  return code;
-};
+// // Generates content view in swift
+// Blockly.JavaScript['create_contentview'] = function(block) {
+//   var code = "struct ContentView: View {\n";
+//   return code;
+// };
+
+// Blockly.Blocks['content_closer'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("Close Content")
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(230);
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
+// // Closes out content
+// Blockly.JavaScript['content_closer'] = function(block) {
+//   var code = "\n}\n";
+//   return code;
+// };
 
 // Create a var body block
 Blockly.Blocks['var_body'] = {
