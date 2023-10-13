@@ -290,7 +290,7 @@ Blockly.Blocks['array_input'] = {
       .appendField(': or =')
       .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
     // Create an input for group name only if EQUALS is ":"
-    // if (block.getFieldValue('EQUALS') === ':') {
+
     if (this.getFieldValue('EQUALS') === ':') {
       this.appendDummyInput()
         .appendField('group name:')
