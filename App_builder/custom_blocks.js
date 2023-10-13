@@ -145,11 +145,8 @@ Blockly.Blocks['state_variable'] = {
 Blockly.JavaScript['state_variable'] = function(block) {
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = block.getFieldValue('VALUE'); // Get the variable value
-  var code = "\n";
-  // Error: Undefined variable 'var_state'. It should be "@State"
-  // code += "@state " + var_state + " " + var_name + " = " + var_value;
-  code += "@State var " + var_name + " = " + var_value; // Corrected
-  return code; // Return the code as a string directly, no need for an array
+  var code = "@State var " + var_name + " = " + var_value + "\n";
+  return code;
 };
 
 
@@ -238,31 +235,27 @@ Blockly.Blocks['list_item'] = {
   }
 };
 
-Blockly.JavaScript['list_input'] = function (block) {
+Blockly.JavaScript['list_input'] = function(block) {
   var var_state = block.getFieldValue('STATE');
   var var_ppn = block.getFieldValue('PPN');
   var var_vorl = block.getFieldValue('VORL');
   var var_name = block.getFieldValue('NAME');
   var var_equals = block.getFieldValue('EQUALS');
-  var var_group_name = block.getFieldValue('GROUP_NAME');
-  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS');
-  
+  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS').trim(); // Trim to remove leading/trailing spaces
+
   var code = '';
-  if (var_state) {
-    code += var_state + ' ';
-  }
-  if (var_ppn) {
-    code += var_ppn + ' ';
-  }
+  if (var_state) code += var_state + ' ';
+  if (var_ppn) code += var_ppn + ' ';
   code += var_vorl + ' ' + var_name + ' ' + var_equals + ' ';
 
   if (var_equals === ':') {
-    code += var_group_name + ' ';
+    var group_name = block.getFieldValue('GROUP_NAME');
+    code += group_name + ' ';
   }
   
-  code += '[' + items + ']';
+  code += '[' + items + '];\n'; // added semicolon to end the statement
   
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  return code;
 };
 
 Blockly.JavaScript['list_item'] = function (block) {
