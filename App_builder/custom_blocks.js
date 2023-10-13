@@ -146,9 +146,12 @@ Blockly.JavaScript['state_variable'] = function(block) {
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = block.getFieldValue('VALUE'); // Get the variable value
   var code = "\n";
-  code += "@state " + var_state + " " + var_name + " = " + var_value;
+  // Error: Undefined variable 'var_state'. It should be "@State"
+  // code += "@state " + var_state + " " + var_name + " = " + var_value;
+  code += "@State var " + var_name + " = " + var_value; // Corrected
   return code; // Return the code as a string directly, no need for an array
 };
+
 
 // Create a variable block
 Blockly.Blocks['user_variable'] = {
