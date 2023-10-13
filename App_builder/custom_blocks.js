@@ -145,7 +145,7 @@ Blockly.Blocks['state_variable'] = {
   }
 };
 
-// Blockly.JavaScript['state_variable'] = function(block) {
+Blockly.JavaScript['state_variable'] = function(block) {
   var var_state = block.getFieldValue('STATE'); // Get the state value
   var var_name = block.getFieldValue('NAME'); // Get the variable name value
   var var_value = block.getFieldValue('VALUE'); // Get the variable value
