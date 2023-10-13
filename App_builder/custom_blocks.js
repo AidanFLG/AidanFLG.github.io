@@ -216,8 +216,28 @@ Blockly.Blocks['list_input'] = {
     this.setColour(230);
     this.setTooltip('Create a List');
     this.setHelpUrl('');
+  },
+
+  updateShape_: function() {
+    var inputExists = this.getInput('GROUP_NAME_INPUT');
+    var equalsValue = this.getFieldValue('EQUALS');
+    
+    if (equalsValue === ':' && !inputExists) {
+      this.appendDummyInput('GROUP_NAME_INPUT')
+          .appendField('group name:')
+          .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
+    } else if (equalsValue !== ':' && inputExists) {
+      this.removeInput('GROUP_NAME_INPUT');
+    }
+  },
+  
+  onchange: function(event) {
+    if (event.blockId === this.id) {
+      this.updateShape_();
+    }
   }
 };
+
 
 Blockly.Blocks['list_item'] = {
   init: function() {
