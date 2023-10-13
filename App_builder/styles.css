@@ -1,3 +1,4 @@
+/* Ensure the body and html have a standard height and no default margins or padding */
 body, html {
     height: 100%;
     margin: 0;
@@ -6,82 +7,83 @@ body, html {
     flex-direction: column;
 }
 
-/* Improve overall layout */
+/* Establish layout properties for the Blockly container */
 #blocklyDivContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 100vh;
+    height: 100vh; /* occupy full viewport height */
 }
 
+/* Style the main Blockly area where blocks are dragged and connected */
 #blocklyDiv {
     flex: 1;
     min-width: 50%;
-    max-width: 70%; /* Adjust as needed */
+    max-width: 70%; /* limits the width between 50% to 70% of parent's width */
     height: 100%;
-    overflow: auto;
+    overflow: auto; /* adds scroll if content exceeds its container */
     background-color: #f0f0f0;
 }
 
+/* Style the container for Blockly action buttons */
 #blocklyButtons {
     display: flex;
     justify-content: space-between;
-    height: auto; /* Adjust as needed */
+    height: auto; /* take only necessary space */
 }
 
+/* Ensures buttons inside the container are spaced out */
 .button-row {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
 }
 
-/* Style for the category tabs (toolbox) */
+/* Styling for the tabs (categories) in the Blockly toolbox */
 .toolbox-tab {
     background-color: #2196F3;
     color: white;
     padding: 5px 20px;
     margin: 2px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    cursor: pointer; /* indicate clickable */
+    transition: background-color 0.3s; /* smooth color transition */
     display: inline-block;
 }
 
+/* Additional padding for each tree row in the Blockly toolbox */
 .blocklyToolboxDiv .blocklyTreeRow {
     padding: 4px 0;
 }
 
+/* Change the tab color when it's selected */
 .toolbox-tab.toolbox-tab-selected {
     background-color: #1976D2;
 }
 
+/* Change the tab color on hover */
 .toolbox-tab:hover {
     background-color: #1976D2;
 }
 
-/* Ensure blocks can be moved and are not obscured */
-/*.blocklyWorkspace {
-    position: relative;
-    z-index: 0;
-} */
-
+/* Modify the margin to adjust space between individual blocks */
 .blocklyWorkspace .blocklyBlock {
-    margin-bottom: 8px; /* Adjust the value to set the desired padding */
+    margin-bottom: 8px; 
 }
 
-/* Optionally, add a border to blocks for visual separation */
+/* Add a border for visual separation between blocks */
 .blocklyBlock {
     border: 1px solid #000;
-    border-radius: 5px;
+    border-radius: 5px; /* rounded corners */
 }
 
-/* Customize scrollbars as needed */
+/* Custom style for webkit scrollbars */
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #555;
-    border-radius: 6px;
+    border-radius: 6px; /* rounded corners */
 }
 
 ::-webkit-scrollbar-track {
