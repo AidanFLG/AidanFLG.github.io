@@ -69,7 +69,11 @@ Blockly.Blocks['content_view_structure'] = {
   }
 };
 
-// Generate Swift code for creating a ContentView structure
+
+// Initialize the Blockly.Swift object
+Blockly.Swift = new Blockly.Generator('Swift');
+
+// Then add your existing code
 Blockly.Swift['content_view_structure'] = function(block) {
     // Extract the code inside the 'CONTENT' statement block
     var contentCode = Blockly.Swift.statementToCode(block, 'CONTENT');
