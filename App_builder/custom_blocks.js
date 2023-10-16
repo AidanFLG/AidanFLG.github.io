@@ -67,42 +67,6 @@ Blockly.Swift['content_view_structure'] = function(block) {
     return code;
 };
 
-// Create Content View
-// Blockly.Blocks['create_contentview'] = {
-//   init: function() {
-//     this.appendDummyInput()
-//         .appendField("Create ContentView")
-//     this.setPreviousStatement(true, null);
-//     this.setNextStatement(true, null);
-//     this.setColour(230);
-//     this.setTooltip("");
-//     this.setHelpUrl("");
-//   }
-// };
-
-// // Generates content view in swift
-// Blockly.JavaScript['create_contentview'] = function(block) {
-//   var code = "struct ContentView: View {\n";
-//   return code;
-// };
-
-// Blockly.Blocks['content_closer'] = {
-//   init: function() {
-//     this.appendDummyInput()
-//         .appendField("Close Content")
-//     this.setPreviousStatement(true, null);
-//     this.setNextStatement(true, null);
-//     this.setColour(230);
-//     this.setTooltip("");
-//     this.setHelpUrl("");
-//   }
-// };
-
-// // Closes out content
-// Blockly.JavaScript['content_closer'] = function(block) {
-//   var code = "\n}\n";
-//   return code;
-// };
 
 // Create a var body block
 Blockly.Blocks['var_body'] = {
