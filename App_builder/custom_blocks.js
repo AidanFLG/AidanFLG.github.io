@@ -15,12 +15,18 @@ Blockly.Blocks['import_swiftui'] = {
   }
 };
 
-// Generate the corresponding Swift code for importing SwiftUI
-Blockly.JavaScript['import_swiftui'] = function(block) {
-  // Generate the Swift code for importing SwiftUI
+// // Generate the corresponding Swift code for importing SwiftUI
+// Blockly.JavaScript['import_swiftui'] = function(block) {
+//   // Generate the Swift code for importing SwiftUI
+//   var code = "import SwiftUI\n";
+//   return code;
+// };
+
+Blockly.Swift['import_swiftui'] = function(block) {
   var code = "import SwiftUI\n";
   return code;
 };
+
 
 // Define a generic import block for importing any library
 Blockly.Blocks['import'] = {
