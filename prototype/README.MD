@@ -1,6 +1,6 @@
-Our Project is called Project Genisis. Our project is intended to be a app creationg project. It converts blockly code into swift code that is intended to be downloaded and copied into xcode to easily develope an app.
+Our Project is called Project Genisis. Our project is intended to be an app-creating project. It converts Blockly code into swift code that is intended to be downloaded and copied into Xcode to easily develop an app.
 
-Press this link to start Blockly Application: [Project Genesis](https://AidanFLG.github.io/prototype/)
+Press this link to start the Blockly Application: [Project Genesis](https://AidanFLG.github.io/prototype/)
 
 This group project is a creative and educational initiative that combines the power of Blockly, a visual programming language, with the world of Swift, Apple's programming language for iOS and macOS app development. This project aims to simplify and demystify the process of creating SwiftUI-based user interfaces in Swift by providing a visual, block-based interface.
 
@@ -18,4 +18,13 @@ Presentation: https://docs.google.com/presentation/d/1wjeES_bDNl1d0USzH3DWpmfqmQ
 
 To recreate the demonstration given in class, use the following steps:
 
-
+1.) Click Project Genesis
+2.) Click Start Blocky
+3.) Click SwiftUi
+4.) Drag the Import Swiftui block to the developer
+5.) Drag the struct block to the developer, don't connect to the block above
+    Title the struct ContentView 
+6.) Drag the variable named block to the developer, and nest it in the struct block
+    Name the Variable message and set the value field to "HELLO"
+7.) Drag the public/private variable block to the developer, and attach it to the bottom of the variable named block
+    set it to private, set the variable name to state, and the value field to true
