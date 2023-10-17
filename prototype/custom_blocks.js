@@ -269,7 +269,6 @@ Blockly.Blocks['list_input'] = {
   }
 };
 
-
 Blockly.Blocks['list_item'] = {
   init: function() {
     this.appendDummyInput()
@@ -311,14 +310,10 @@ Blockly.JavaScript['list_input'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-
-
 Blockly.JavaScript['list_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
-
-
 
 // Create an array item block
 Blockly.Blocks['array_item'] = {
@@ -339,9 +334,6 @@ Blockly.JavaScript['array_item'] = function(block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item + ', ';  // Make sure to return the code in a way that is compatible with your 'array_input' block
 };
-
-
-
 
 // Create an array block
 Blockly.Blocks['array_input'] = {
@@ -377,7 +369,6 @@ Blockly.Blocks['array_input'] = {
   }
 };
 
-
 Blockly.JavaScript['array_input'] = function (block) {
   var var_state = block.getFieldValue('STATE');
   var var_ppn = block.getFieldValue('PPN');
@@ -404,8 +395,6 @@ Blockly.JavaScript['array_input'] = function (block) {
   
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
-
-
 
 Blockly.JavaScript['array_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
