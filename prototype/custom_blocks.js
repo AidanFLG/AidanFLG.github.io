@@ -218,6 +218,86 @@ Blockly.JavaScript['state_variable'] = function(block) {
   return code; // Return the code as a string directly, no need for an array
 };
 
+Blockly.Blocks['foreground_color'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(".foregroundColor(");
+    this.appendValueInput("TERNARY_OPERATOR")
+        .setCheck(null)
+        .appendField("Condition");
+    this.appendDummyInput()
+        .appendField(")");
+    this.appendValueInput('Action')
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("Set foreground color based on a condition");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['foreground_color'] = function(block) {
+  var ternaryOperator = Blockly.JavaScript.valueToCode(block, 'TERNARY_OPERATOR', Blockly.JavaScript.ORDER_NONE);
+  
+  var code = ".foregroundColor" + ternaryOperator;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['ternary_operator'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Ternary Operator");
+    this.appendDummyInput()
+        .appendField("Condition")
+        .appendField(new Blockly.FieldTextInput(""), "CONDITION");
+    this.appendDummyInput()
+        .appendField("?")
+    this.appendDummyInput()
+        .appendField("True Value")
+        .appendField(new Blockly.FieldTextInput(""), "TRUE_VALUE");
+    this.appendDummyInput()
+        .appendField(":");
+    this.appendDummyInput()
+        .appendField("False Value")
+        .appendField(new Blockly.FieldTextInput(""), "FALSE_VALUE");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("Ternary operator");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['ternary_operator'] = function(block) {
+  var condition = block.getFieldValue('CONDITION');
+  var trueValue = block.getFieldValue('TRUE_VALUE');
+  var falseValue = block.getFieldValue('FALSE_VALUE');
+  
+  var code = "(" + condition + " ? " + trueValue + " : " + falseValue + ")";
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['variable_toggle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Toggle state variable named:")
+        .appendField(new Blockly.FieldTextInput("stateVariable"), "VAR_NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(160);
+    this.setTooltip("Toggle the state variable");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['variable_toggle'] = function(block) {
+  var var_name = block.getFieldValue('VAR_NAME');
+  var code = var_name + ".toggle();\n";
+  return code;
+};
+
 // Create a variable block
 Blockly.Blocks['user_variable'] = {
   init: function() {
