@@ -316,7 +316,7 @@ Blockly.Blocks['list_input'] = {
 Blockly.Blocks['list_item'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField('Item:');
+      .appendField('List Item:');
     this.appendValueInput('ITEM')
       .setCheck(null);
     this.setPreviousStatement(true, 'List_Item');
@@ -363,7 +363,7 @@ Blockly.JavaScript['list_item'] = function (block) {
 Blockly.Blocks['array_item'] = {
   init: function() {
     this.appendDummyInput()
-      .appendField("Array Item");
+      .appendField("Array Item: ");
     this.appendValueInput("ITEM")
       .setCheck(null);
     this.setPreviousStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
