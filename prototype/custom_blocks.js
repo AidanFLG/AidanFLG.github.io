@@ -140,7 +140,8 @@ Blockly.Blocks['contentview_preview'] = {
 Blockly.JavaScript['contentview_preview'] = function(block) {
   var code = "struct ContentView_Previews: PreviewProvider {\n";
   var code += "static var previews: some View {\n"
-  var code += "ContentView()\n}\n}"
+  var code += "ContentView()\n"
+  var code += "}\n}"
   return code;
 };
 
