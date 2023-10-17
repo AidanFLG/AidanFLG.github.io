@@ -45,6 +45,8 @@ Blockly.Blocks['struct'] = {
         .appendField(new Blockly.FieldTextInput("struct name"), "STRUCTNAME");
     this.appendStatementInput("FUNCTION")
         .setCheck(null)
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(160);
     this.setTooltip("");
     this.setHelpUrl("");
