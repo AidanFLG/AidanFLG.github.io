@@ -159,7 +159,8 @@ Blockly.Blocks['user_variable'] = {
     this.appendDummyInput()
         .appendField("var")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
-    this.setOutput(true, "Variable");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(430);
     this.setTooltip("");
     this.setHelpUrl("");
@@ -178,7 +179,8 @@ Blockly.Blocks['text_input'] = {
     this.appendDummyInput()
         .appendField("Text:")
         .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE");
-    this.setOutput(true, "String");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(430);
     this.setTooltip("Input a text value.");
     this.setHelpUrl("");
