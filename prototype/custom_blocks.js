@@ -235,6 +235,46 @@ Blockly.JavaScript['text_input'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Create a variable block
+Blockly.Blocks['user_single'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("var")
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAMES");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(430);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['user_single'] = function(block) {
+  var var_name = block.getFieldValue('NAMES'); // Get the variable name value
+  var code = var_name
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// Create a text block
+Blockly.Blocks['text_single'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Text:")
+        .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE_S");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(430);
+    this.setTooltip("Input a text value.");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['text_single'] = function(block) {
+  var var_value = block.getFieldValue('TEXT_VALUE_S'); // Get the variable value
+  var code = var_value;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 // Create a list block
 Blockly.Blocks['list_input'] = {
   init: function() {
