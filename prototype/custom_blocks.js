@@ -139,9 +139,9 @@ Blockly.Blocks['contentview_preview'] = {
 // Generates content view in swift
 Blockly.JavaScript['contentview_preview'] = function(block) {
   var code = "struct ContentView_Previews: PreviewProvider {\n";
-  var code += "static var previews: some View {\n"
-  var code += "ContentView()\n"
-  var code += "}\n}"
+  code += "static var previews: some View {\n"
+  code += "ContentView()\n"
+  code += "}\n}"
   return code;
 };
 
