@@ -193,6 +193,49 @@ Blockly.JavaScript['text_input'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Create a variable block
+Blockly.Blocks['user_variable_single'] = {
+  init: function() {
+    // Define a block to create a user-defined variable
+    this.appendDummyInput()
+        .appendField("var")
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
+    this.setOutput(true, "Variable");
+    this.setColour(430);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates code for creating a user-defined variable in Swift
+Blockly.JavaScript['user_variable_single'] = function(block) {
+  var var_name = block.getFieldValue('NAME'); // Get the variable name value
+  var code = var_name
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// Create a text block
+Blockly.Blocks['text_input_single'] = {
+  init: function() {
+    // Define a block to input a text value
+    this.appendDummyInput()
+        .appendField("Text:")
+        .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE");
+    this.setOutput(true, "String");
+    this.setColour(430);
+    this.setTooltip("Input a text value.");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates code for a text input in Swift
+Blockly.JavaScript['text_input_single'] = function(block) {
+  var var_value = block.getFieldValue('TEXT_VALUE'); // Get the variable value
+  var code = var_value;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+
 // Create a list block
 Blockly.Blocks['list_input'] = {
   init: function() {
