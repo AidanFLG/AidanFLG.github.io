@@ -28,12 +28,12 @@ To recreate the demonstration given in class, use the following steps:
 
 5.) Drag the struct block to the developer, don't connect to the block above
 
-    Title the struct ContentView
+6.) Title the struct ContentView
 
-6.) Drag the variable named block to the developer, and nest it in the struct block
+7.) Drag the variable named block to the developer, and nest it in the struct block
 
-    Name the Variable message and set the value field to "HELLO"
+8.) Name the Variable message and set the value field to "HELLO"
 
-7.) Drag the public/private variable block to the developer, and attach it to the bottom of the variable named block
+9.) Drag the public/private variable block to the developer, and attach it to the bottom of the variable named block
 
-    set it to private, set the variable name to state, and the value field to true
+10.) set it to private, set the variable name to state, and the value field to true
