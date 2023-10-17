@@ -194,36 +194,53 @@ Blockly.JavaScript['text_input'] = function(block) {
 // Create a list block
 Blockly.Blocks['list_input'] = {
   init: function() {
+    // Define a block to create a list
     this.appendDummyInput()
       .appendField("@State or none:")
-      .appendField(new Blockly.FieldTextInput(''), 'STATE');
+      .appendField(new Blockly.FieldTextInput('none'), 'STATE');
     this.appendDummyInput()
       .appendField('public, private, or none:')
-      .appendField(new Blockly.FieldTextInput(''), 'PPN');
+      .appendField(new Blockly.FieldTextInput('none'), 'PPN');
     this.appendDummyInput()
       .appendField('var or let:')
-      .appendField(new Blockly.FieldTextInput('var or let'), 'VORL');
+      .appendField(new Blockly.FieldTextInput('var'), 'VORL');
     this.appendDummyInput()
       .appendField('list name:')
       .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME');
     this.appendDummyInput()
       .appendField(': or =')
-      .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
-    if (block.getFieldValue('EQUALS') === ':') {
-      this.appendDummyInput()
-        .appendField('group name:')
-        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
-    }
+      .appendField(new Blockly.FieldTextInput(':'), 'EQUALS');
+
+    // Create an input for list items
     this.appendStatementInput('ITEMS')
       .setCheck('List_Item')
       .appendField('insert blocks as items in list');
+
     this.setOutput(true, 'List');
     this.setColour(230);
     this.setTooltip('Create a List');
     this.setHelpUrl('');
+  },
+  onchange: function(event) {
+    // Handle changes
+    if (this.getFieldValue('EQUALS') === ':') {
+      if (!this.getInput('GROUP_NAME')) {
+        this.appendDummyInput('GROUP_NAME')
+          .appendField('group name:')
+          .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
+      }
+    } else if (this.getFieldValue('EQUALS') === '=') {
+      if (this.getInput('GROUP_NAME')) {
+        this.removeInput('GROUP_NAME');
+      }
+    } else {
+      // Handle errors (optional)
+    }
   }
 };
 
+
+// Define a block to create a list item
 Blockly.Blocks['list_item'] = {
   init: function() {
     this.appendDummyInput()
@@ -238,6 +255,7 @@ Blockly.Blocks['list_item'] = {
   }
 };
 
+// Generates code for a list in Swift
 Blockly.JavaScript['list_input'] = function (block) {
   var var_state = block.getFieldValue('STATE');
   var var_ppn = block.getFieldValue('PPN');
@@ -265,34 +283,58 @@ Blockly.JavaScript['list_input'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Generates code for a list item in Swift
 Blockly.JavaScript['list_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
 
+// Create an array item block
+Blockly.Blocks['array_item'] = {
+  init: function() {
+    // Define a block to create an array item
+    this.appendDummyInput()
+      .appendField("Array Item");
+    this.appendValueInput("ITEM")
+      .setCheck(null);
+    this.setPreviousStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
+    this.setNextStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
+    this.setColour(60);
+    this.setTooltip("Array item");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates code for an array item in Swift
+Blockly.JavaScript['array_item'] = function(block) {
+  var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
+  return item + ', ';  // Make sure to return the code in a way that is compatible with your 'array_input' block
+};
+
 // Create an array block
 Blockly.Blocks['array_input'] = {
   init: function() {
+    // Define a block to create an array
     this.appendDummyInput()
       .appendField("@State or none:")
-      .appendField(new Blockly.FieldTextInput(''), 'STATE');
+      .appendField(new Blockly.FieldTextInput('none'), 'STATE'); // Provide a default value
     this.appendDummyInput()
       .appendField('public, private, or none:')
-      .appendField(new Blockly.FieldTextInput(''), 'PPN');
+      .appendField(new Blockly.FieldTextInput('none'), 'PPN'); // Provide a default value
     this.appendDummyInput()
       .appendField('var or let:')
-      .appendField(new Blockly.FieldTextInput('var or let'), 'VORL');
+      .appendField(new Blockly.FieldTextInput('var'), 'VORL'); // Provide a default value
     this.appendDummyInput()
       .appendField('array name:')
-      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME');
+      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME'); // Provide a placeholder
     this.appendDummyInput()
       .appendField(': or =')
-      .appendField(new Blockly.FieldTextInput('Enter : or ='), 'EQUALS');
+      .appendField(new Blockly.FieldTextInput(':'), 'EQUALS'); // Provide a default value
     // Create an input for group name only if EQUALS is ":"
-    if (block.getFieldValue('EQUALS') === ':') {
+    if (this.getFieldValue('EQUALS') === ':') {
       this.appendDummyInput()
         .appendField('group name:')
-        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
+        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME'); // Provide a placeholder
     }
     this.appendStatementInput('ITEMS')
       .setCheck('Array_Item')
@@ -304,20 +346,7 @@ Blockly.Blocks['array_input'] = {
   }
 };
 
-Blockly.Blocks['array_item'] = {
-  init: function() {
-    this.appendDummyInput()
-      .appendField('Item:');
-    this.appendValueInput('ITEM')
-      .setCheck(null);
-    this.setPreviousStatement(true, 'Array_Item');
-    this.setNextStatement(true, 'Array_Item');
-    this.setColour(60);
-    this.setTooltip('Array item');
-    this.setHelpUrl('');
-  }
-};
-
+// Generates code for an array in Swift
 Blockly.JavaScript['array_input'] = function (block) {
   var var_state = block.getFieldValue('STATE');
   var var_ppn = block.getFieldValue('PPN');
@@ -345,8 +374,8 @@ Blockly.JavaScript['array_input'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// Generates code for an array item in Swift
 Blockly.JavaScript['array_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
-
