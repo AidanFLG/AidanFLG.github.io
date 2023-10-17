@@ -13,3 +13,5 @@ Key features of the project include the ability to:
 - Design SwiftUI user interfaces visually using Blockly's intuitive interface.
 
 Overall, this project empowers users, from novice programmers to seasoned developers, to learn SwiftUI interactively and prototype user interfaces quickly. It serves as an innovative bridge between visual programming and traditional text-based coding, fostering creativity and proficiency in iOS and macOS app development.
+
+Presentation: https://docs.google.com/presentation/d/1wjeES_bDNl1d0USzH3DWpmfqmQsiYiy8ldku4DfSNoQ/edit#slide=id.g2900cbf3851_10_6
