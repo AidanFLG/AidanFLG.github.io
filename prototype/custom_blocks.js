@@ -123,6 +123,27 @@ Blockly.JavaScript['create_contentview'] = function(block) {
   return code;
 };
 
+// Create Content View
+Blockly.Blocks['contentview_preview'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Create Content Preview")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates content view in swift
+Blockly.JavaScript['contentview_preview'] = function(block) {
+  var code = "struct ContentView_Previews: PreviewProvider {\n";
+  var code += "static var previews: some View {\n"
+  var code += "ContentView()\n}\n}"
+  return code;
+};
+
 Blockly.Blocks['content_closer'] = {
   init: function() {
     this.appendDummyInput()
