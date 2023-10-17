@@ -262,6 +262,8 @@ Blockly.Blocks['list_input'] = {
     this.appendStatementInput('ITEMS')
       .setCheck('List_Item')
       .appendField('insert blocks as items in list');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setOutput(true, 'List');
     this.setColour(230);
     this.setTooltip('Create a List');
@@ -362,6 +364,8 @@ Blockly.Blocks['array_input'] = {
     this.appendStatementInput('ITEMS')
       .setCheck('Array_Item')
       .appendField('insert blocks as items in array');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setOutput(true, 'Array');
     this.setColour(230);
     this.setTooltip('Create an Array');
