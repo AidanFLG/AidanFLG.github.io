@@ -1,397 +1,547 @@
-// Define a Blockly block for importing SwiftUI
+// Import SwiftUI and create ContentView block
 Blockly.Blocks['import_swiftui'] = {
   init: function() {
-    // Add a dummy input to display the text "Import SwiftUI" on the block
     this.appendDummyInput()
-        .appendField("Import SwiftUI");
-    // Define where this block can be connected in the Blockly workspace
+        .appendField("Import SwiftUI")
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    // Set the color of the block to 230
     this.setColour(230);
-    // Set tooltip and help URL, which are currently empty
     this.setTooltip("");
     this.setHelpUrl("");
   }
 };
 
-// // Generate the corresponding Swift code for importing SwiftUI
-// Blockly.JavaScript['import_swiftui'] = function(block) {
-//   // Generate the Swift code for importing SwiftUI
-//   var code = "import SwiftUI\n";
-//   return code;
-// };
-
-Blockly.Swift['import_swiftui'] = function(block) {
+// Generates import in swift
+Blockly.JavaScript['import_swiftui'] = function(block) {
   var code = "import SwiftUI\n";
   return code;
 };
 
-
-// Define a generic import block for importing any library
-Blockly.Blocks['import'] = {
+Blockly.Blocks['on_tap_gesture'] = {
   init: function() {
-    // Add a dummy input and a text input field for the library name
     this.appendDummyInput()
-        .appendField("Import")
-        .appendField(new Blockly.FieldTextInput("Enter import name"), "IMPORT");
-    // Define where this block can be connected in the Blockly workspace
+        .appendField("On Tap Gesture");
+    this.appendStatementInput("ACTION")
+        .setCheck(null)
+        .appendField("do");
     this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    // Set the color of the block to 230
-    this.setColour(230);
-    // Set tooltip and help URL, which are currently empty
+    this.setNextStatement(true, null);    
+    this.setColour(160);
     this.setTooltip("");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding Swift code for a generic import
-Blockly.JavaScript['import'] = function(block) {
-  // Get the library name from the block field
-  var var_import = block.getFieldValue('IMPORT');
-  // Generate the Swift code for importing the specified library
-  var code = "import " + var_import + "\n";
+Blockly.JavaScript['on_tap_gesture'] = function(block) {
+  var statements_action = Blockly.JavaScript.statementToCode(block, 'ACTION');
+  var code = ".onTapGesture {\n" + statements_action + "}\n";
   return code;
 };
 
-// Define a block for creating a ContentView structure in SwiftUI
-Blockly.Blocks['content_view_structure'] = {
+Blockly.Blocks['struct'] = {
   init: function() {
-    // Add a dummy input to display the text "Content View Structure" on the block
     this.appendDummyInput()
-        .appendField("Content View Structure");
-    // Add a statement input for the content of the ContentView
-    this.appendStatementInput("CONTENT")
+        .appendField("struct")
+        .appendField(new Blockly.FieldTextInput("struct name"), "STRUCTNAME");
+    this.appendStatementInput("FUNCTION")
         .setCheck(null)
-        .appendField("Content");
-    // Set the color of the block to 230
-    this.setColour(230);
-    // Set a tooltip explaining what this block does
-    this.setTooltip('This block creates a content view structure with opening and closing functionalities.');
-    // Define where this block can be connected in the Blockly workspace
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+    this.setColour(160);
+    this.setTooltip("");
+    this.setHelpUrl("");
   }
+}
+
+Blockly.JavaScript['struct'] = function(block) {
+  var name = block.getFieldValue('STRUCTNAME');
+  var statements_action = Blockly.JavaScript.statementToCode(block, 'FUNCTION');
+  var code = "struct " + name + ": View {\n" + statements_action + "\n}\n";
+  return code;
 };
 
-
-// Initialize the Blockly.Swift object
-Blockly.Swift = new Blockly.Generator('Swift');
-
-// Then add your existing code
-Blockly.Swift['content_view_structure'] = function(block) {
-    // Extract the code inside the 'CONTENT' statement block
-    var contentCode = Blockly.Swift.statementToCode(block, 'CONTENT');
-    // Initialize the Swift code for creating a UIView named 'contentView'
-    var code = 'let contentView = UIView()\n';
-    // Append the code inside the 'CONTENT' statement block
-    code += contentCode;
-    // Add the 'contentView' to the main view
-    code += 'self.view.addSubview(contentView)\n';
-    // Return the generated Swift code
-    return code;
-};
-
-// Define a Blockly block for creating a 'var body' in SwiftUI
 Blockly.Blocks['var_body'] = {
   init: function() {
-    // Add dummy inputs to display text on the block
-    this.appendDummyInput("BODY_NAME")
-        .appendField("Create var body with name:");
-    this.appendDummyInput("BODY_CONTENT")
-        .appendField("Body Content");
-    // Define where this block can be connected
+    this.appendDummyInput()
+        .appendField("var body")
+        .appendField(new Blockly.FieldTextInput("view type"), "VIEWTYPE");
+    this.appendStatementInput("VIEW")
+        .setCheck(null)
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);    
+    this.setColour(160);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+}
+
+Blockly.JavaScript['var_body'] = function(block) {
+  var view = block.getFieldValue('VIEWTYPE');
+  var statements_action = Blockly.JavaScript.statementToCode(block, 'VIEW');
+  var code = "\nvar body: " + view + " {\n" + statements_action + "\n}\n";
+  return code;
+};
+
+
+// Import SwiftUI and create ContentView block
+Blockly.Blocks['import'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Import")
+        .appendField(new Blockly.FieldTextInput("Enter import name"), "IMPORT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    // Set the color and tooltip
-    this.setColour(160);
-    this.setTooltip("Create a var body for ContentView");
+    this.setColour(230);
+    this.setTooltip("");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding Swift code for 'var body'
-Blockly.JavaScript['var_body'] = function(block) {
-  // Generate the Swift code for defining 'var body'
-  var code = "\nvar body: some View {\n";
+// Generates import in swift
+Blockly.JavaScript['import'] = function(block) {
+  var var_import = block.getFieldValue('IMPORT');
+  var code = "import " + var_import + "\n";
   return code;
 };
 
-// Define a Blockly block for creating a variable in Swift
+// Create Content View
+Blockly.Blocks['create_contentview'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Create ContentView")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates content view in swift
+Blockly.JavaScript['create_contentview'] = function(block) {
+  var code = "struct ContentView: View {\n";
+  return code;
+};
+
+// Create Content View
+Blockly.Blocks['contentview_preview'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Create Content Preview")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Generates content view in swift
+Blockly.JavaScript['contentview_preview'] = function(block) {
+  var code = "struct ContentView_Previews: PreviewProvider {\nstatic var previews: some View {\nContentView()\n}\n}";
+  return code;
+};
+
+Blockly.Blocks['content_closer'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Close Content")
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// Closes out content
+Blockly.JavaScript['content_closer'] = function(block) {
+  var code = "\n\n";
+  code += "}";
+  return code;
+};
+
+
+// Create a variable block
 Blockly.Blocks['variable'] = {
   init: function() {
-    // Add dummy inputs for the variable name and value
     this.appendDummyInput("VAR_NAME")
         .appendField("variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendDummyInput("VAR_VALUE")
         .appendField("Value:")
         .appendField(new Blockly.FieldTextInput("Enter value"), "VALUE");
-    // Make the inputs appear inline
     this.setInputsInline(true);
-    // Define where this block can be connected
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    // Set the color and tooltip
     this.setColour(60);
     this.setTooltip("Create a variable");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding Swift code for creating a variable
 Blockly.JavaScript['variable'] = function(block) {
-  // Get the variable name and value from the block
-  var var_name = block.getFieldValue('NAME');
-  var var_value = block.getFieldValue('VALUE');
-  // Generate the Swift code for creating the variable
-  var code = "\nvar " + var_name + " = " + var_value;
-  return code;
+  var var_name = block.getFieldValue('NAME'); // Get the variable name value
+  var var_value = block.getFieldValue('VALUE'); // Get the variable value
+  var code = "\n";
+  code += "var " + var_name + " = " + var_value;
+  return code; // Return the code as a string directly, no need for an array
 };
 
-// Define a Blockly block for creating a state variable in SwiftUI
+// Create a state variable block
 Blockly.Blocks['state_variable'] = {
   init: function() {
-    // Add dummy inputs for the state variable name and value
+    this.appendDummyInput("VAR_STATE")
+        .appendField("Public or Private:")
+        .appendField(new Blockly.FieldTextInput("public or private or "), "STATE");
     this.appendDummyInput("VAR_NAME")
         .appendField("state variable named:")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
     this.appendDummyInput("VAR_VALUE")
         .appendField("Value:")
         .appendField(new Blockly.FieldTextInput("Enter value"), "VALUE");
-    // Make the inputs appear inline
     this.setInputsInline(true);
-    // Define where this block can be connected
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    // Set the color and tooltip
     this.setColour(60);
     this.setTooltip("Create a variable");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding Swift code for creating a state variable
 Blockly.JavaScript['state_variable'] = function(block) {
-  // Get the state variable name and value from the block
-  var var_name = block.getFieldValue('NAME');
-  var var_value = block.getFieldValue('VALUE');
-  // Generate the Swift code for creating the state variable
-  var code = "@State var " + var_name + " = " + var_value + "\n";
+  var var_state = block.getFieldValue('STATE'); // Get the state value
+  var var_name = block.getFieldValue('NAME'); // Get the variable name value
+  var var_value = block.getFieldValue('VALUE'); // Get the variable value
+  var code = "\n";
+  code += "@state " + var_state + " " + var_name + " = " + var_value;
+  return code; // Return the code as a string directly, no need for an array
+};
+
+Blockly.Blocks['foreground_color'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(".foregroundColor(");
+    this.appendValueInput("TERNARY_OPERATOR")
+        .setCheck(null)
+        .appendField("Condition");
+    this.appendDummyInput()
+        .appendField(")");
+    this.appendValueInput('Action')
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("Set foreground color based on a condition");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['foreground_color'] = function(block) {
+  var ternaryOperator = Blockly.JavaScript.valueToCode(block, 'TERNARY_OPERATOR', Blockly.JavaScript.ORDER_NONE);
+  
+  var code = ".foregroundColor" + ternaryOperator;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['ternary_operator'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Ternary Operator");
+    this.appendDummyInput()
+        .appendField("Condition")
+        .appendField(new Blockly.FieldTextInput(""), "CONDITION");
+    this.appendDummyInput()
+        .appendField("?")
+    this.appendDummyInput()
+        .appendField("True Value")
+        .appendField(new Blockly.FieldTextInput(""), "TRUE_VALUE");
+    this.appendDummyInput()
+        .appendField(":");
+    this.appendDummyInput()
+        .appendField("False Value")
+        .appendField(new Blockly.FieldTextInput(""), "FALSE_VALUE");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(60);
+    this.setTooltip("Ternary operator");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['ternary_operator'] = function(block) {
+  var condition = block.getFieldValue('CONDITION');
+  var trueValue = block.getFieldValue('TRUE_VALUE');
+  var falseValue = block.getFieldValue('FALSE_VALUE');
+  
+  var code = "(" + condition + " ? " + trueValue + " : " + falseValue + ")";
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['variable_toggle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Toggle state variable named:")
+        .appendField(new Blockly.FieldTextInput("stateVariable"), "VAR_NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(160);
+    this.setTooltip("Toggle the state variable");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['variable_toggle'] = function(block) {
+  var var_name = block.getFieldValue('VAR_NAME');
+  var code = var_name + ".toggle();\n";
   return code;
 };
 
-
-// Define a Blockly block for creating a user-defined variable
+// Create a variable block
 Blockly.Blocks['user_variable'] = {
   init: function() {
-    // Add a dummy input with a text field for the variable name
     this.appendDummyInput()
         .appendField("var")
         .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAME");
-    // Set the output type to "Variable"
     this.setOutput(true, "Variable");
-    // Set the color of the block
     this.setColour(430);
-    // Tooltip and Help URL are empty
     this.setTooltip("");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding JavaScript code for the user-defined variable
 Blockly.JavaScript['user_variable'] = function(block) {
-  // Get the variable name from the block
-  var var_name = block.getFieldValue('NAME');
-  // Return the variable name as code
-  var code = var_name;
+  var var_name = block.getFieldValue('NAME'); // Get the variable name value
+  var code = var_name
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-// Define a Blockly block for creating a text input
+// Create a text block
 Blockly.Blocks['text_input'] = {
   init: function() {
-    // Add a dummy input with a text field for the text value
     this.appendDummyInput()
         .appendField("Text:")
         .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE");
-    // Set the output type to "String"
     this.setOutput(true, "String");
-    // Set the color and tooltip
     this.setColour(430);
     this.setTooltip("Input a text value.");
     this.setHelpUrl("");
   }
 };
 
-// Generate the corresponding JavaScript code for the text input
 Blockly.JavaScript['text_input'] = function(block) {
-  // Get the text value from the block
-  var var_value = block.getFieldValue('TEXT_VALUE');
-  // Return the text value as code
+  var var_value = block.getFieldValue('TEXT_VALUE'); // Get the variable value
   var code = var_value;
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-// Define a Blockly block for creating a list
+// Create a variable block
+Blockly.Blocks['user_single'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("var")
+        .appendField(new Blockly.FieldTextInput("Enter variable name"), "NAMES");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(430);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['user_single'] = function(block) {
+  var var_name = block.getFieldValue('NAMES'); // Get the variable name value
+  var code = var_name
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// Create a text block
+Blockly.Blocks['text_single'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Text:")
+        .appendField(new Blockly.FieldTextInput("Enter text"), "TEXT_VALUE_S");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(430);
+    this.setTooltip("Input a text value.");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['text_single'] = function(block) {
+  var var_value = block.getFieldValue('TEXT_VALUE_S'); // Get the variable value
+  var code = var_value;
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// Create a list block
 Blockly.Blocks['list_input'] = {
   init: function() {
-    // Add various dummy inputs for list properties like state, access level, etc.
     this.appendDummyInput()
       .appendField("@State or none:")
-      .appendField(new Blockly.FieldTextInput(''), 'STATE');
-    // ... (similar dummy inputs for other properties)
-    // Add a statement input for list items
+      .appendField(new Blockly.FieldTextInput('none'), 'STATE'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('public, private, or none:')
+      .appendField(new Blockly.FieldTextInput('none'), 'PPN'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('var or let:')
+      .appendField(new Blockly.FieldTextInput('var'), 'VORL'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('list name:')
+      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME'); // Provide a placeholder
+    this.appendDummyInput()
+      .appendField(': or =')
+      .appendField(new Blockly.FieldTextInput(':'), 'EQUALS'); // Provide a default value
+    // Create an input for group name only if EQUALS is ":"
+    if (this.getFieldValue('EQUALS') === ':') {
+      this.appendDummyInput()
+        .appendField('group name:')
+        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME'); // Provide a placeholder
+    }
     this.appendStatementInput('ITEMS')
       .setCheck('List_Item')
       .appendField('insert blocks as items in list');
-    // Set the output type, color, tooltip, and help URL
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setOutput(true, 'List');
     this.setColour(230);
     this.setTooltip('Create a List');
     this.setHelpUrl('');
-
-    // Additional logic for updating the block shape based on ': or =' field
-    // ...
-  },
-
-  // Function to update the block shape based on the value of the ': or =' field
-  updateShape_: function() {
-    // ...
-  },
-  
-  // Event handler for changes to the block
-  onchange: function(event) {
-    // ...
   }
 };
 
-// Define a Blockly block for creating a list item
 Blockly.Blocks['list_item'] = {
   init: function() {
-    // Add a dummy input with the label 'Item:'
     this.appendDummyInput()
-      .appendField('Item:');
-    // Add a value input for the item
+      .appendField('List Item:');
     this.appendValueInput('ITEM')
       .setCheck(null);
-    // Define where this block can be connected
     this.setPreviousStatement(true, 'List_Item');
     this.setNextStatement(true, 'List_Item');
-    // Set the color and tooltip
     this.setColour(60);
     this.setTooltip('List item');
     this.setHelpUrl('');
   }
 };
 
-// Generate JavaScript code for the 'list_input' Blockly block
-Blockly.JavaScript['list_input'] = function(block) {
-  // Retrieve field values from the block
+Blockly.JavaScript['list_input'] = function (block) {
   var var_state = block.getFieldValue('STATE');
   var var_ppn = block.getFieldValue('PPN');
   var var_vorl = block.getFieldValue('VORL');
   var var_name = block.getFieldValue('NAME');
   var var_equals = block.getFieldValue('EQUALS');
-  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS').trim(); // Trim to remove leading/trailing spaces
-
-  // Initialize the code string
+  var var_group_name = block.getFieldValue('GROUP_NAME');
+  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS');
+  
   var code = '';
-  // Add state if it exists
-  if (var_state) code += var_state + ' ';
-  // Add public/private/none if it exists
-  if (var_ppn) code += var_ppn + ' ';
-  // Add 'var' or 'let'
+  if (var_state) {
+    code += var_state + ' ';
+  }
+  if (var_ppn) {
+    code += var_ppn + ' ';
+  }
   code += var_vorl + ' ' + var_name + ' ' + var_equals + ' ';
 
-  // If the list is typed (indicated by ':'), add the type group name
   if (var_equals === ':') {
-    var group_name = block.getFieldValue('GROUP_NAME');
-    code += group_name + ' ';
+    code += var_group_name + ' ';
   }
   
-  // Add the list items and close the statement
-  code += '[' + items + '];\n';
+  code += '[' + items + ']';
   
-  return code;
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-// Generate JavaScript code for the 'list_item' Blockly block
 Blockly.JavaScript['list_item'] = function (block) {
-  // Retrieve the item value from the block
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
 
-// Define a Blockly block for creating an array
-Blockly.Blocks['array_input'] = {
+// Create an array item block
+Blockly.Blocks['array_item'] = {
   init: function() {
-    // Initialize the block with a dropdown for '=' or ':'
     this.appendDummyInput()
-        .appendField("Array")
-        .appendField(new Blockly.FieldDropdown([["=", "="], [":", ":"]]), "EQUALS");
-    // Set output type, color, and tooltips
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip("");
+      .appendField("Array Item: ");
+    this.appendValueInput("ITEM")
+      .setCheck(null);
+    this.setPreviousStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
+    this.setNextStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
+    this.setColour(60);
+    this.setTooltip("Array item");
     this.setHelpUrl("");
-    // Ensure the block shape is correct initially
-    this.updateShape_();
-  },
-  
-  // Function to update the block shape based on the value of the ': or =' field
-  updateShape_: function() {
-    // Check if the 'GROUP_NAME_INPUT' exists
-    var inputExists = this.getInput('GROUP_NAME_INPUT');
-    // Get the current value of 'EQUALS'
-    var equalsValue = this.getFieldValue('EQUALS');
-    
-    // Add or remove the 'GROUP_NAME_INPUT' based on the value of 'EQUALS'
-    if (equalsValue === ':' && !inputExists) {
-      this.appendDummyInput('GROUP_NAME_INPUT')
-          .appendField('group name:')
-          .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME');
-    } else if (equalsValue !== ':' && inputExists) {
-      this.removeInput('GROUP_NAME_INPUT');
-    }
-  },
-  
-  // Event handler for changes to the block
-  onchange: function(event) {
-    if (event.blockId === this.id) {
-      this.updateShape_();
-    }
   }
 };
 
-// Define a Blockly block for creating an array item
-Blockly.Blocks['array_item'] = {
+Blockly.JavaScript['array_item'] = function(block) {
+  var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
+  return item + ', ';  // Make sure to return the code in a way that is compatible with your 'array_input' block
+};
+
+// Create an array block
+Blockly.Blocks['array_input'] = {
   init: function() {
-    // Initialize the block with a label and a value input
     this.appendDummyInput()
-      .appendField('Item:');
-    this.appendValueInput('ITEM')
-      .setCheck(null);
-    // Define where this block can be connected
-    this.setPreviousStatement(true, 'Array_Item');
-    this.setNextStatement(true, 'Array_Item');
-    // Set color and tooltips
-    this.setColour(60);
-    this.setTooltip('Array item');
+      .appendField("@State or none:")
+      .appendField(new Blockly.FieldTextInput('none'), 'STATE'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('public, private, or none:')
+      .appendField(new Blockly.FieldTextInput('none'), 'PPN'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('var or let:')
+      .appendField(new Blockly.FieldTextInput('var'), 'VORL'); // Provide a default value
+    this.appendDummyInput()
+      .appendField('array name:')
+      .appendField(new Blockly.FieldTextInput('Enter name'), 'NAME'); // Provide a placeholder
+    this.appendDummyInput()
+      .appendField(': or =')
+      .appendField(new Blockly.FieldTextInput(':'), 'EQUALS'); // Provide a default value
+    // Create an input for group name only if EQUALS is ":"
+    if (this.getFieldValue('EQUALS') === ':') {
+      this.appendDummyInput()
+        .appendField('group name:')
+        .appendField(new Blockly.FieldTextInput('Enter name'), 'GROUP_NAME'); // Provide a placeholder
+    }
+    this.appendStatementInput('ITEMS')
+      .setCheck('Array_Item')
+      .appendField('insert blocks as items in array');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setOutput(true, 'Array');
+    this.setColour(230);
+    this.setTooltip('Create an Array');
     this.setHelpUrl('');
   }
 };
 
-// Generate JavaScript code for the 'array_input' Blockly block
 Blockly.JavaScript['array_input'] = function (block) {
-  // Similar to the 'list_input' code generator, but for arrays
-  // ...
+  var var_state = block.getFieldValue('STATE');
+  var var_ppn = block.getFieldValue('PPN');
+  var var_vorl = block.getFieldValue('VORL');
+  var var_name = block.getFieldValue('NAME');
+  var var_equals = block.getFieldValue('EQUALS');
+  var var_group_name = block.getFieldValue('GROUP_NAME');
+  var items = Blockly.JavaScript.statementToCode(block, 'ITEMS');
+  
+  var code = '';
+  if (var_state) {
+    code += var_state + ' ';
+  }
+  if (var_ppn) {
+    code += var_ppn + ' ';
+  }
+  code += var_vorl + ' ' + var_name + ' ' + var_equals + ' ';
+
+  if (var_equals === ':') {
+    code += var_group_name + ' ';
+  }
+  
+  code += '[' + items + ']';
+  
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-// Generate JavaScript code for the 'array_item' Blockly block
 Blockly.JavaScript['array_item'] = function (block) {
-  // Retrieve the item value from the block
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
