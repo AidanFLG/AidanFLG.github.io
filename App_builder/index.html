@@ -3,8 +3,6 @@
 
 <head>
     <title>Genesis App Developer</title>
-<!--     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script src="custom_blocks.js"></script> -->
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="custom_blocks.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -13,9 +11,9 @@
 <body>
     <div>
         <p>
-            <a href="https://github.com/AidanFLG/AidanFLG.github.io/tree/main/App_builder" target="_blank">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="20" height="20">
-            View Source on GitHub
+            <a href="https://github.com/AidanFLG/prototype/App_builder/tree/main/App_builder" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="20" height="20">
+                View Source on GitHub
             </a>
         </p>
     </div>
@@ -27,12 +25,14 @@
             <category name="SwiftUI" colour="#5CA7A3" categorystyle="none" expanded="true">
                 <block type="import_swiftui"></block>
                 <block type="create_contentview"></block>
+                <block type="contentview_preview"></block>
+                <block type="content_closer"></block>
+                <block type="on_tap_gesture"></block>
+                <block type="struct"></block>
                 <block type="var_body"></block>
-                <block type="variable"></block>
-                <block type="user_variable"></block>
-                <block type="state_variable"></block>
-                <block type="text_input"></block>
-                <block type="content_view_structure"></block>
+                <block type="ternary_operator"></block>
+                <block type="foreground_color"></block>
+                <block type="variable_toggle"></block>
             </category>
             <category name="Lists" colour="#FF7F50" categorystyle="none" expanded="true">
                 <block type="list_input"></block>
@@ -41,6 +41,14 @@
             <category name="Arrays" colour="#FFA500" categorystyle="none" expanded="true">
                 <block type="array_input"></block>
                 <block type="array_item"></block>
+            </category>
+             <category name="Variables" colour="##5650FF" categorystyle="none" expanded="true">
+                <block type="variable"></block>
+                <block type="state_variable"></block>
+                <block type="user_variable"></block>
+                <block type="text_input"></block>
+                <block type="user_single"></block>
+                <block type="text_single"></block>
             </category>
         </div>
     </div>
@@ -62,9 +70,7 @@
         var workspace;
 
         function startBlockly() {
-            console.log("Starting Blockly");
-            // document.querySelector('.start-buttons').style.display = 'none';
-            document.querySelector('.start-buttons').style.display = 'block';
+            document.querySelector('.start-buttons').style.display = 'none';
             document.querySelector('#blocklyDivContainer').style.display = 'block';
             document.querySelector('#blocklyButtons').style.display = 'block';
             document.querySelector('#blocklyResult').style.display = 'block';
@@ -77,7 +83,6 @@
 
         function generateCode() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
-            console.log("Generated code: ", code);
             document.getElementById('codeDiv').innerText = code;
         }
 
@@ -105,7 +110,6 @@
 
         function loadBlocks() {
             document.getElementById('loadInput').click();
-            console.log("Triggering file input");
         }
 
         function loadBlocksFile(event) {
