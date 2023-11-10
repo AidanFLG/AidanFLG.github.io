@@ -1,3 +1,10 @@
+/*
+This is the Custom Blocks File. The purpose of this file is to house all the blocks that are being used in our code. 
+Each block that gets created("Blockly.Blocks"), must have its own javascript("Blockly.JavaScript"). After creating a block,
+you must add it to the library of blocks that are displayed in the index file. All of the provided blocks are meant to build 
+a block in the UI and create some sort of code when used and code is either downloaded or generated.
+*/
+
 // Import SwiftUI and create ContentView block
 Blockly.Blocks['import_swiftui'] = {
   init: function() {
