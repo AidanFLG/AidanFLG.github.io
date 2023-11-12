@@ -2,7 +2,9 @@
 
 ## What we currently have:
 
-### 
+### We currently have a basic set up for our app.
+
+#### We have user library on 
 
 ## What we plan on adding:
 
