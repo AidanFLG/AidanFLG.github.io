@@ -1,7 +1,7 @@
 # GP354
 # Tony Bautista, Aidan Lewis-Grenz, Jordan Silver
 
-## To start the program, click this link: [App Builder](https://AidanFLG.github.io/App_builder/)
+## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
 
 
 ## Motivation and Description: 
