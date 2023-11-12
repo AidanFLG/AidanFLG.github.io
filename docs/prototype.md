@@ -1,6 +1,6 @@
 Our Project is called Project Genisis. Our project is intended to be an app-creating project. It converts Blockly code into swift code that is intended to be downloaded and copied into Xcode to easily develop an app.
 
-Press this link to start the Blockly Application: [Project Genesis](https://AidanFLG.github.io/prototype/)
+Press this link to start the Blockly Application: [Project Genesis](https://AidanFLG.github.io/src/)
 
 This group project is a creative and educational initiative that combines the power of Blockly, a visual programming language, with the world of Swift, Apple's programming language for iOS and macOS app development. This project aims to simplify and demystify the process of creating SwiftUI-based user interfaces in Swift by providing a visual, block-based interface.
 
