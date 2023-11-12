@@ -6,4 +6,4 @@
 
 ### Originally planning on having two modes, we currently only have one mode that works and that is our basic mode. This mode will allow you to have access to all building blocks.
 
-### When it comes to creating blockly swift code, you should try and start with.....
+### When it comes to creating blockly swift code, you should try and start with the "SwiftUI" tab on the left-hand side of the screen, select the "import SwiftUI" block, and proceed with the "Create ContentView" blocks so that you can add Swift UI to your code as well as create the main content view space where you will be putting all your work into which will be displayed on the right side of your screen when copied into Xcode.
