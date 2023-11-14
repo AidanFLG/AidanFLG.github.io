@@ -1,6 +1,5 @@
 
 # CPSC354-Genisis Milestone 1
-For this milestone we decided to focus on 
 
 ## APP Builder Link
 Go to [APP Builder](https://AidanFLG.github.io/src/)
