@@ -10,9 +10,15 @@ Download or pull our code into your local files and compile it. From here you ca
 
 ## Starting the code
 
+After running the code, the first page that a user is prompted with is a page that has a link to our GitHub repo and a "Start Blockly" button. The user should click the "Start Blockly" button. After the user clicks the button, they should be sent to a new page with our Blockly UI.
+
 ## Generate Swift
 
+After building blocks within our UI, the user can use the "Generate Swift" button to create 
+
 ## Download Swift
+
+After building code in our Blockly UI, a user can press the "Download Swift" button to download a "generated.swift" file. After downloading this file. A user can open the generated.swift file and copy the code. The user would then open a new Xcode project and in the context view file that first appears when you open the project you can paste the previously copied code in the place of the current code and press build project to build a app with what you have built in blockly.
 
 ## Save Blocks
 
