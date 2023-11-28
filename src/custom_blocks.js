@@ -33,7 +33,7 @@ Blockly.Blocks['on_tap_gesture'] = {
         .appendField("do");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);    
-    this.setColour(160);
+    this.setColour(60);
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -293,7 +293,7 @@ Blockly.Blocks['variable_toggle'] = {
         .appendField(new Blockly.FieldTextInput("stateVariable"), "VAR_NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(160);
+    this.setColour(60);
     this.setTooltip("Toggle the state variable");
     this.setHelpUrl("");
   }
