@@ -427,7 +427,7 @@ Blockly.Blocks['list_item'] = {
       .setCheck(null);
     this.setPreviousStatement(true, 'List_Item');
     this.setNextStatement(true, 'List_Item');
-    this.setColour(60);
+    this.setColour(430);
     this.setTooltip('List item');
     this.setHelpUrl('');
   }
@@ -474,7 +474,7 @@ Blockly.Blocks['array_item'] = {
       .setCheck(null);
     this.setPreviousStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
     this.setNextStatement(true, 'Array_Item');  // Set the type to whatever you want, for example, 'Array_Item'
-    this.setColour(60);
+    this.setColour(430);
     this.setTooltip("Array item");
     this.setHelpUrl("");
   }
