@@ -42,6 +42,9 @@ body, html {
 }
 
 .button-row {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
