@@ -567,7 +567,7 @@ Blockly.Blocks['button'] = {
 		  .appendField("action");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(160);
+	  this.setColour(260);
 	  this.setTooltip("Creates a Button with an action.");
 	  this.setHelpUrl("");
 	}
@@ -599,7 +599,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField("text");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(210);
+	  this.setColour(100);
 	  this.setTooltip("Creates a TextField with a placeholder.");
 	  this.setHelpUrl("");
 	}
@@ -826,7 +826,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField(")");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(190);
+	  this.setColour(260);
 	  this.setTooltip("Adds an animation modifier to the view.");
 	  this.setHelpUrl("");
 	}
