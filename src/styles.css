@@ -87,3 +87,8 @@ body, html {
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
+.button-row {
+    margin-top: -288px; /* Move the buttons up by approx 3 inches */
+}
+
