@@ -573,12 +573,14 @@ Blockly.Blocks['button'] = {
 	}
   };
   
-  Blockly.JavaScript['button'] = function(block) {
-	var title = Blockly.JavaScript.valueToCode(block, 'TITLE', Blockly.JavaScript.ORDER_ATOMIC);
-	var action = Blockly.JavaScript.statementToCode(block, 'ACTION');
-	var code = 'Button("' + title + '") {\n' + action + '\n}\n';
-	return code;
-  };
+Blockly.JavaScript['button'] = function(block) {
+  var title = Blockly.JavaScript.valueToCode(block, 'TITLE', Blockly.JavaScript.ORDER_ATOMIC);
+  // Default action for the button if none is provided
+  var action = Blockly.JavaScript.statementToCode(block, 'ACTION') || 'print("Button was tapped")\n';
+  var code = 'Button("' + title + '") {\n' + action + '}\n';
+  return code;
+};
+
 
 
   /*
