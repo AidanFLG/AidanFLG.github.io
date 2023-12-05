@@ -18,7 +18,6 @@ body, html {
     flex: 1;
     min-width: 50%;
     max-width: 70%; /* Adjust as needed */
-    height: 100%;
     overflow: auto;
     background-color: #f0f0f0;
 }
@@ -30,9 +29,14 @@ body, html {
 }
 
 .button-row {
+    /* Remove any 'display: none;' styles if present to make the row visible */
     display: flex;
     justify-content: space-between;
-    flex-grow: 1;
+    padding: 10px; /* Add some padding for aesthetics */
+    /* Position the buttons higher up from the bottom */
+    position: absolute;
+    bottom: 50px; /* Increase this value to move the buttons higher up */
+    width: 100%; /* Ensure the button row spans the entire width of its container */
 }
 
 /* Style for the category tabs (toolbox) */
