@@ -30,7 +30,6 @@ body, html {
 }
 
 .button-row {
-    margin-top: 40px; /* Start with -10px and increase if needed */
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
