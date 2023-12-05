@@ -552,3 +552,333 @@ Blockly.JavaScript['array_item'] = function (block) {
   var item = Blockly.JavaScript.valueToCode(block, 'ITEM', Blockly.JavaScript.ORDER_NONE);
   return item;
 };
+
+/*button block: This block allows the user to create a Button with a title and an action. 
+The action is a set of statements that will be executed when the button is tapped.*/
+Blockly.Blocks['button'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("Button");
+	  this.appendValueInput("TITLE")
+		  .setCheck("String")
+		  .appendField("title");
+	  this.appendStatementInput("ACTION")
+		  .setCheck(null)
+		  .appendField("action");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(160);
+	  this.setTooltip("Creates a Button with an action.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['button'] = function(block) {
+	var title = Blockly.JavaScript.valueToCode(block, 'TITLE', Blockly.JavaScript.ORDER_ATOMIC);
+	var action = Blockly.JavaScript.statementToCode(block, 'ACTION');
+	var code = 'Button("' + title + '") {\n' + action + '\n}\n';
+	return code;
+  };
+
+
+  /*
+  This block creates a TextField with a placeholder text. 
+  The 'text' field is expected to be a variable that will be updated with the text entered by the user.
+  */
+  Blockly.Blocks['textfield'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("TextField");
+	  this.appendValueInput("PLACEHOLDER")
+		  .setCheck("String")
+		  .appendField("placeholder");
+	  this.appendValueInput("TEXT")
+		  .setCheck("Variable")
+		  .appendField("text");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(210);
+	  this.setTooltip("Creates a TextField with a placeholder.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['textfield'] = function(block) {
+	var placeholder = Blockly.JavaScript.valueToCode(block, 'PLACEHOLDER', Blockly.JavaScript.ORDER_ATOMIC);
+	var text = Blockly.JavaScript.valueToCode(block, 'TEXT', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = 'TextField(' + placeholder + ', text: ' + text + ')\n';
+	return code;
+  };
+
+  /*Image Block
+  The Image block simply creates an Image view with the specified image name. 
+  It's important that the image name corresponds to an image asset in the user's project.
+  */
+  Blockly.Blocks['image'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("Image");
+	  this.appendDummyInput("NAME")
+		  .appendField("name:")
+		  .appendField(new Blockly.FieldTextInput("image_name"), "NAME");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(100);
+	  this.setTooltip("Creates an Image view.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['image'] = function(block) {
+	var imageName = block.getFieldValue('NAME');
+	var code = 'Image("' + imageName + '")\n';
+	return code;
+  };
+
+
+  /*Slider Block: This block represents a Slider view in SwiftUI, 
+  allowing users to specify a value, minimum and maximum range, and a step value.
+  */
+  Blockly.Blocks['slider'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("Slider");
+	  this.appendValueInput("VALUE")
+		  .setCheck("Number")
+		  .appendField("value");
+	  this.appendDummyInput()
+		  .appendField("in range")
+		  .appendField(new Blockly.FieldNumber(0), "MIN")
+		  .appendField("to")
+		  .appendField(new Blockly.FieldNumber(1), "MAX");
+	  this.appendValueInput("STEP")
+		  .setCheck("Number")
+		  .appendField("step");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(260);
+	  this.setTooltip("Creates a Slider with a specific range and step.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['slider'] = function(block) {
+	var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+	var min = block.getFieldValue('MIN');
+	var max = block.getFieldValue('MAX');
+	var step = Blockly.JavaScript.valueToCode(block, 'STEP', Blockly.JavaScript.ORDER_ATOMIC);
+	var code = 'Slider(value: ' + value + ', in: ' + min + '...' + max + ', step: ' + step + ')\n';
+	return code;
+  };
+
+  //Hstack Block: This block creates a horizontal stack (HStack) with alignment and spacing.
+  Blockly.Blocks['hstack'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("HStack alignment")
+		  .appendField(new Blockly.FieldDropdown([
+			["center", "center"], 
+			["leading", "leading"], 
+			["trailing", "trailing"]
+		  ]), "ALIGNMENT");
+	  this.appendDummyInput()
+		  .appendField("spacing")
+		  .appendField(new Blockly.FieldNumber(0, 0), "SPACING");
+	  this.appendStatementInput("CONTENT")
+		  .setCheck(null)
+		  .appendField("content");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(160);
+	  this.setTooltip("Creates a horizontal stack (HStack) with alignment and spacing.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['hstack'] = function(block) {
+	var alignment = block.getFieldValue('ALIGNMENT');
+	var spacing = block.getFieldValue('SPACING');
+	var content = Blockly.JavaScript.statementToCode(block, 'CONTENT');
+	var code = `HStack(alignment: .${alignment}, spacing: ${spacing}) {\n${content}}\n`;
+	return code;
+  };
+  
+  //Vstack Block: This block creates a vertical stack (VStack) with alignment and spacing.
+  Blockly.Blocks['vstack'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("VStack alignment")
+		  .appendField(new Blockly.FieldDropdown([
+			["center", "center"], 
+			["leading", "leading"], 
+			["trailing", "trailing"]
+		  ]), "ALIGNMENT");
+	  this.appendDummyInput()
+		  .appendField("spacing")
+		  .appendField(new Blockly.FieldNumber(0, 0), "SPACING");
+	  this.appendStatementInput("CONTENT")
+		  .setCheck(null)
+		  .appendField("content");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(190);
+	  this.setTooltip("Creates a vertical stack (VStack) with alignment and spacing.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['vstack'] = function(block) {
+	var alignment = block.getFieldValue('ALIGNMENT');
+	var spacing = block.getFieldValue('SPACING');
+	var content = Blockly.JavaScript.statementToCode(block, 'CONTENT');
+	var code = `VStack(alignment: .${alignment}, spacing: ${spacing}) {\n${content}}\n`;
+	return code;
+  };
+  
+  //Zstack Block: This block creates a stack that layers its children, aligning them in both axes (ZStack).
+  Blockly.Blocks['zstack'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("ZStack alignment")
+		  .appendField(new Blockly.FieldDropdown([
+			["center", "center"], 
+			["top", "top"], 
+			["bottom", "bottom"]
+		  ]), "ALIGNMENT");
+	  this.appendStatementInput("CONTENT")
+		  .setCheck(null)
+		  .appendField("content");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(220);
+	  this.setTooltip("Creates a stack that layers its children, aligning them in both axes (ZStack).");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['zstack'] = function(block) {
+	var alignment = block.getFieldValue('ALIGNMENT');
+	var content = Blockly.JavaScript.statementToCode(block, 'CONTENT');
+	var code = `ZStack(alignment: .${alignment}) {\n${content}}\n`;
+	return code;
+  };
+  
+  // Control Flow Blocks - If Statement Block
+  Blockly.Blocks['swiftui_if'] = {
+	init: function() {
+	  this.appendValueInput("CONDITION")
+		  .setCheck("Boolean")
+		  .appendField("if");
+	  this.appendStatementInput("DO")
+		  .appendField("do");
+	  this.appendStatementInput("ELSE")
+		  .appendField("else");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(210);
+	  this.setTooltip("If-Else statement for SwiftUI conditional content.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['swiftui_if'] = function(block) {
+	var condition = Blockly.JavaScript.valueToCode(block, 'CONDITION', Blockly.JavaScript.ORDER_NONE) || 'false';
+	var doBranch = Blockly.JavaScript.statementToCode(block, 'DO');
+	var elseBranch = Blockly.JavaScript.statementToCode(block, 'ELSE');
+	var code = `if ${condition} {\n${doBranch}} else {\n${elseBranch}}\n`;
+	return code;
+  };
+  
+  //Modifiers Block - Padding
+  Blockly.Blocks['modifier_padding'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField(".padding(")
+		  .appendField(new Blockly.FieldNumber(0), "VALUE")
+		  .appendField(")");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(160);
+	  this.setTooltip("Adds padding around the content.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['modifier_padding'] = function(block) {
+	var paddingValue = block.getFieldValue('VALUE');
+	var code = `.padding(${paddingValue})\n`;
+	return code;
+  };
+
+  // Animation Block - Basic Animation
+  Blockly.Blocks['modifier_animation'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField(".animation(")
+		  .appendField(new Blockly.FieldDropdown([
+			["default", ".default"], 
+			["easeInOut", ".easeInOut"], 
+			["easeIn", ".easeIn"], 
+			["easeOut", ".easeOut"]
+		  ]), "TYPE")
+		  .appendField(")");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(190);
+	  this.setTooltip("Adds an animation modifier to the view.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['modifier_animation'] = function(block) {
+	var animationType = block.getFieldValue('TYPE');
+	var code = `.animation(${animationType})\n`;
+	return code;
+  };
+
+  // Function Block - Define Function
+  Blockly.Blocks['swiftui_function'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("func")
+		  .appendField(new Blockly.FieldTextInput("myFunction"), "NAME");
+	  this.appendDummyInput()
+		  .appendField("(")
+		  .appendField(new Blockly.FieldTextInput("parameters"), "PARAMS")
+		  .appendField(")");
+	  this.appendStatementInput("DO")
+		  .appendField("do");
+	  this.setColour(260);
+	  this.setTooltip("Define a function with specified parameters and content.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['swiftui_function'] = function(block) {
+	var functionName = block.getFieldValue('NAME');
+	var params = block.getFieldValue('PARAMS');
+	var doBranch = Blockly.JavaScript.statementToCode(block, 'DO');
+	var code = `func ${functionName}(${params}) {\n${doBranch}}\n`;
+	return code;
+  };
+
+  // Comment Block
+  Blockly.Blocks['swiftui_comment'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("//")
+		  .appendField(new Blockly.FieldTextInput("Type your comment here"), "COMMENT");
+	  this.setPreviousStatement(true, null);
+	  this.setNextStatement(true, null);
+	  this.setColour(160);
+	  this.setTooltip("Add a comment to the code.");
+	  this.setHelpUrl("");
+	}
+  };
+  
+  Blockly.JavaScript['swiftui_comment'] = function(block) {
+	var commentText = block.getFieldValue('COMMENT');
+	var code = `// ${commentText}\n`;
+	return code;
+  };
+
