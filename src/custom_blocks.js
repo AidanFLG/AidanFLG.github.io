@@ -691,7 +691,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField("content");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(160);
+	  this.setColour(190);
 	  this.setTooltip("Creates a horizontal stack (HStack) with alignment and spacing.");
 	  this.setHelpUrl("");
 	}
@@ -752,7 +752,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField("content");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(220);
+	  this.setColour(190);
 	  this.setTooltip("Creates a stack that layers its children, aligning them in both axes (ZStack).");
 	  this.setHelpUrl("");
 	}
@@ -777,7 +777,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField("else");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(210);
+	  this.setColour(230);
 	  this.setTooltip("If-Else statement for SwiftUI conditional content.");
 	  this.setHelpUrl("");
 	}
@@ -872,7 +872,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField(new Blockly.FieldTextInput("Type your comment here"), "COMMENT");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(160);
+	  this.setColour(230);
 	  this.setTooltip("Add a comment to the code.");
 	  this.setHelpUrl("");
 	}
