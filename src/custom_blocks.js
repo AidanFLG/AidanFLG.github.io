@@ -800,7 +800,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField(")");
 	  this.setPreviousStatement(true, null);
 	  this.setNextStatement(true, null);
-	  this.setColour(160);
+	  this.setColour(100);
 	  this.setTooltip("Adds padding around the content.");
 	  this.setHelpUrl("");
 	}
@@ -850,7 +850,7 @@ Blockly.JavaScript['button'] = function(block) {
 		  .appendField(")");
 	  this.appendStatementInput("DO")
 		  .appendField("do");
-	  this.setColour(260);
+	  this.setColour(160);
 	  this.setTooltip("Define a function with specified parameters and content.");
 	  this.setHelpUrl("");
 	}
