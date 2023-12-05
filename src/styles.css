@@ -14,6 +14,18 @@ body, html {
     height: 100vh;
 }
 
+/* New styles for the generated code container */
+#generated-code-container {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 300px; /* Adjust width */
+    height: 300px; /* Adjust height */
+    background-color: #fff; /* Adjust background color */
+    border: 1px solid #ccc; /* Add border for visibility */
+    overflow: auto; /* Enable scrolling if needed */
+}
+
 #blocklyDiv {
     flex: 1;
     min-width: 50%;
