@@ -30,6 +30,7 @@ body, html {
 }
 
 .button-row {
+    margin-top: -10px; /* Start with -10px and increase if needed */
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
@@ -88,7 +89,4 @@ body, html {
     background: #f1f1f1;
 }
 
-.button-row {
-    margin-top: -30px; /* Move the buttons up by approx 3 inches */
-}
 
