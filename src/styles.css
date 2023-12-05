@@ -87,3 +87,17 @@ body, html {
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+/* New CSS for the right panel */
+.right-panel {
+  float: right;
+  width: 50%; /* Adjust the width as needed */
+  height: 100%; /* Ensures it takes full height */
+  border-left: 1px solid #ccc; /* Add a border for separation */
+  padding: 10px; /* Optional padding for better readability */
+  overflow-y: auto; /* Add scrollbars if the content exceeds the panel height */
+}
+
+/* Adjust the blocklyDiv width to fit the remaining space */
+#blocklyDivContainer {
+  width: 50%; /* Adjust the width to complement the right panel */
+}
