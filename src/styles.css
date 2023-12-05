@@ -35,7 +35,7 @@ body, html {
     padding: 10px; /* Add some padding for aesthetics */
     /* Position the buttons higher up from the bottom */
     position: absolute;
-    bottom: 50px; /* Increase this value to move the buttons higher up */
+    bottom: 100px; /* Increase this value to move the buttons higher up */
     width: 100%; /* Ensure the button row spans the entire width of its container */
 }
 
