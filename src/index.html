@@ -85,7 +85,7 @@ a block in the UI and create some sort of code when used and code is either down
     <div class="row" style="display: none;" id="blocklyDivContainer">
         <div id="blocklyDiv" class="full-width"></div>
     </div>
-    <div class="row button-row" style="display: none;" id="blocklyButtons">
+    <div class="row button-row" style="display: none;" id="blocklyButtons" style="position: absolute; top: 20px; left: 20px;">
         <button onclick="generateCode()">Generate Swift</button>
         <button onclick="runCode()">Download Swift</button>
         <button onclick="saveBlocks()">Save Blocks</button>
@@ -96,7 +96,7 @@ a block in the UI and create some sort of code when used and code is either down
         <div id="codeDiv" class="half-width"></div>
         <div id="outputDiv" class="half-width"></div>
     </div>
-    <div id="generated-code-container" class="right-panel" style="position: absolute; top: 20px; right:20px;">
+    <div id="generated-code-container" class="right-panel" style="position: absolute; top: 30px; right:20px;">
         <pre id="codeDiv"></pre>
     </div>
     <script>
