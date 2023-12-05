@@ -16,7 +16,7 @@ body, html {
 
 /* New styles for the generated code container */
 #generated-code-container {
-    position: fixed;
+    position: absolute;
     top: 20px; /* Adjust as needed */
     right: 20px; /* Adjust as needed */
     width: 300px; /* Adjust width */
