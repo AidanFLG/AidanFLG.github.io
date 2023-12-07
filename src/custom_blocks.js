@@ -884,7 +884,7 @@ Blockly.JavaScript['button'] = function(block) {
 	return code;
   };
 
-//create state variables
+// create state variables
 Blockly.Blocks['state_variable'] = {
   init: function() {
     this.appendDummyInput()
@@ -903,11 +903,16 @@ Blockly.Blocks['state_variable'] = {
 };
 
 Blockly.Swift['state_variable'] = function(block) {
-  var varName = block.getFieldValue('VAR_NAME') || 'variableName';
-  var varType = block.getFieldValue('VAR_TYPE') || 'Type';
-  var varValue = block.getFieldValue('VAR_VALUE') || 'InitialValue';
+  var varName = block.getFieldValue('VAR_NAME');
+  var varType = block.getFieldValue('VAR_TYPE');
+  var varValue = block.getFieldValue('VAR_VALUE');
+  
+  // Check if any of the required values are missing and return an error or default code
+  if (!varName || !varType || !varValue) {
+    console.error('Missing values for state variable block');
+    return '// Error: Missing values for state variable\n';
+  }
+  
   var code = '@State private var ' + varName + ': ' + varType + ' = ' + varValue + '\n';
   return code;
 };
-
-
