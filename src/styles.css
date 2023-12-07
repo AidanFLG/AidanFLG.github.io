@@ -16,14 +16,15 @@ body, html {
 
 /* New styles for the generated code container */
 #generated-code-container {
-    position: flex;
+    position: absolute;
     top: 40px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
     width: 300px; /* Adjust width */
-    height: 300px; /* Adjust height */
-    background-color: #fff; /* Adjust background color */
+    height: 700px; /* Adjust height */
+    /*background-color: #fff; Adjust background color */
     border: 1px solid #ccc; /* Add border for visibility */
     overflow: auto; /* Enable scrolling if needed */
+    color: black; /* Adjust text color */
 }
 
 #blocklyDiv {
@@ -44,7 +45,7 @@ body, html {
 .button-row {
     position: absolute;
     top: 20px; /* Adjust as needed */
-    left: 200px; /* Adjust as needed */
+    left: 300px; /* Adjust as needed */
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
