@@ -884,3 +884,80 @@ Blockly.JavaScript['button'] = function(block) {
 	return code;
   };
 
+//create state variables
+Blockly.Blocks['state_variable'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("@State private var")
+        .appendField(new Blockly.FieldTextInput("variableName"), "VAR_NAME")
+        .appendField(":")
+        .appendField(new Blockly.FieldTextInput("String"), "VAR_TYPE")
+        .appendField("=")
+        .appendField(new Blockly.FieldTextInput("''"), "VAR_VALUE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Creates a @State variable");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Swift['state_variable'] = function(block) {
+  var varName = block.getFieldValue('VAR_NAME');
+  var varType = block.getFieldValue('VAR_TYPE');
+  var varValue = block.getFieldValue('VAR_VALUE');
+  var code = '@State private var ' + varName + ': ' + varType + ' = ' + varValue + '\n';
+  return code;
+};
+
+
+// string variable
+Blockly.Blocks['state_variable_string'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("@State private var")
+        .appendField(new Blockly.FieldTextInput("variableName"), "VAR_NAME")
+        .appendField(": String =")
+        .appendField(new Blockly.FieldTextInput("''"), "VAR_VALUE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Creates a @State variable for a String");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Swift['state_variable_string'] = function(block) {
+  var varName = block.getFieldValue('VAR_NAME');
+  var varValue = block.getFieldValue('VAR_VALUE');
+  var code = '@State private var ' + varName + ': String = "' + varValue + '"\n';
+  return code;
+};
+
+// double state variable
+Blockly.Blocks['state_variable_double'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("@State private var")
+        .appendField(new Blockly.FieldTextInput("variableName"), "VAR_NAME")
+        .appendField(": Double =")
+        .appendField(new Blockly.FieldNumber(0.0), "VAR_VALUE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("Creates a @State variable for a Double");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Swift['state_variable_double'] = function(block) {
+  var varName = block.getFieldValue('VAR_NAME');
+  var varValue = block.getFieldValue('VAR_VALUE');
+  var code = '@State private var ' + varName + ': Double = ' + varValue + '\n';
+  return code;
+};
+
+
+
+
+
