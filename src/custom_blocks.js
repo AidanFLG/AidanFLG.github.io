@@ -903,9 +903,9 @@ Blockly.Blocks['state_variable'] = {
 };
 
 Blockly.Swift['state_variable'] = function(block) {
-  var varName = block.getFieldValue('VAR_NAME');
-  var varType = block.getFieldValue('VAR_TYPE');
-  var varValue = block.getFieldValue('VAR_VALUE');
+  var varName = block.getFieldValue('VAR_NAME') || 'variableName';
+  var varType = block.getFieldValue('VAR_TYPE') || 'Type';
+  var varValue = block.getFieldValue('VAR_VALUE') || 'InitialValue';
   var code = '@State private var ' + varName + ': ' + varType + ' = ' + varValue + '\n';
   return code;
 };
