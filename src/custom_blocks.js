@@ -812,6 +812,26 @@ Blockly.JavaScript['button'] = function(block) {
 	return code;
   };
 
+  
+  Blockly.Blocks['background_color'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("Background Color")
+          .appendField(new Blockly.FieldColour("#ff0000"), "COLOR");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(100);
+      this.setTooltip("");
+      this.setHelpUrl("");
+  }
+  };
+  
+  Blockly.JavaScript['background_color'] = function(block) {
+    var var_color = block.getFieldValue('COLOR');
+    var code = ".background(Color(\"" + var_color + "\"))";
+    return code;
+  };
+
   // Animation Block - Basic Animation
   Blockly.Blocks['modifier_animation'] = {
 	init: function() {
