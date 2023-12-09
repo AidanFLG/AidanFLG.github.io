@@ -17,7 +17,7 @@ body, html {
 /* New styles for the generated code container */
 #generated-code-container {
     position: absolute;
-    top: 50%; /* Adjust as needed */
+    top: 40; /* Adjust as needed */
     right: 10px; /* Adjust as needed */
     width: 300px; /* Adjust width */
     height: 700px; /* Adjust height */
