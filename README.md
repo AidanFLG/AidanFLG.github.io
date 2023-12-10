@@ -1,6 +1,8 @@
 # Project Genesis
 # Tony Bautista, Aidan Lewis-Grenz, Jordan Silver
 
+## To View the videos, click this link: [Genesis Videos](https://AidanFLG.github.io/src/)
+
 ## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
 
 
@@ -21,3 +23,9 @@
 
 ## Compilation in the APP Builder Project: 
 ### Compilation in computer science refers to converting source code into machine code. In our App project, the act of code replication embodies this concept. The original Blockly sequence is compiled into a new, complementary Swift code strand. This replication ensures that the Swift style of instructions is preserved and can be passed on.
+
+## Future Work:
+### ..................
+
+## Contributions: 
+### ..................
