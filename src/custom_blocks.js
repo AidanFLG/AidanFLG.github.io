@@ -884,16 +884,19 @@ Blockly.JavaScript['button'] = function(block) {
 	return code;
   };
 
+// Ensure that the Blockly.Swift namespace is defined
+Blockly.Swift = Blockly.Swift || {};
+
 // Define the Blockly block for a @State variable in Swift
 Blockly.Blocks['state_variable'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("@State private var")
-        .appendField(new Blockly.FieldTextInput("variableName"), "VAR_NAME") // The name of the variable
+        .appendField(new Blockly.FieldTextInput("variableName"), "VAR_NAME")
         .appendField(":")
-        .appendField(new Blockly.FieldTextInput("String"), "VAR_TYPE") // The type of the variable, e.g., String
+        .appendField(new Blockly.FieldTextInput("String"), "VAR_TYPE")
         .appendField("=")
-        .appendField(new Blockly.FieldTextInput("\"\""), "VAR_VALUE"); // The default value of the variable, set to an empty string
+        .appendField(new Blockly.FieldTextInput("\"\""), "VAR_VALUE");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -908,18 +911,12 @@ Blockly.Swift['state_variable'] = function(block) {
   var varType = block.getFieldValue('VAR_TYPE');
   var varValue = block.getFieldValue('VAR_VALUE');
   
-  // Debugging: Log the values to the console to ensure they are correct
-  console.log('varName:', varName); // Should show the variable name input by the user
-  console.log('varType:', varType); // Should show the variable type input by the user, default "String"
-  console.log('varValue:', varValue); // Should show the variable value input by the user, default "\"\""
-
-  // Check if any of the required values are missing and return an error code
+  // Check if any of the required values are missing and return an error or default code
   if (!varName || !varType || !varValue) {
     console.error('Missing values for state variable block');
     return '// Error: Missing values for state variable\n';
   }
   
-  // Construct the Swift code for the @State variable declaration
   var code = '@State private var ' + varName + ': ' + varType + ' = ' + varValue + '\n';
   return code;
 };
