@@ -1,4 +1,4 @@
-# GP354
+# Project Genesis
 # Tony Bautista, Aidan Lewis-Grenz, Jordan Silver
 
 ## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
