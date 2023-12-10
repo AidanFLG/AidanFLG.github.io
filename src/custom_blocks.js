@@ -893,7 +893,7 @@ Blockly.Blocks['state_variable'] = {
         .appendField(":")
         .appendField(new Blockly.FieldTextInput("String"), "VAR_TYPE")
         .appendField("=")
-        .appendField(new Blockly.FieldTextInput("''"), "VAR_VALUE");
+        .appendField(new Blockly.FieldTextInput("\"\""), "VAR_VALUE");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
