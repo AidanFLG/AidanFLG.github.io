@@ -27,7 +27,11 @@
 ### Compilation in computer science refers to converting source code into machine code. In our App project, the act of code replication embodies this concept. The original Blockly sequence is compiled into a new, complementary Swift code strand. This replication ensures that the Swift style of instructions is preserved and can be passed on.
 
 ## Future Work:
-### With our project, there are many different dicrections that someone else can take it. Our main idea for the future of this project would be creating two different modes. For these two different modes, a user of the application can create a begginners mode and a intermidiate mode.
+### As we chart the course for our project's future, we're considering the implementation of two distinct modes tailored to different user proficiencies. These modes will grant users the ability to immerse themselves in an experience crafted specifically for them, offering a choice between a beginner-friendly mode and an intermediate-level mode. This strategic approach ensures our application's adaptability, catering comprehensively to users across varying skill levels, thus enriching their overall interaction.
+
+### In the beginner-friendly mode, the application will intelligently limit users' access to specific blocks based on their prior usage, fostering a guided learning experience. Users will only be able to utilize blocks that logically align with their current progress, ensuring a cohesive and understandable workflow. Moreover, this mode will incorporate a helpful feature allowing users to hover over a block and instantly access a concise description, aiding comprehension of the block's functionality and intended use.
+
+### Conversely, the intermediate-level mode will offer unrestricted access to all blocks, empowering users with greater freedom and versatility in their creative endeavors. Additionally, users in this mode will have access to the same descriptive support available in the beginner-friendly mode, facilitating a seamless transition between skill levels and providing assistance whenever needed.
 
 ## Contributions: 
 ### ..................
