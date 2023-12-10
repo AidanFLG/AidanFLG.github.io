@@ -7,6 +7,8 @@
 
 ## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
 
+## Link to Swift Developer Documentation: [Developer Documentation](https://developer.apple.com/documentation/swiftui)
+
 
 ## Motivation and Description: 
 
