@@ -27,7 +27,7 @@
 ### Compilation in computer science refers to converting source code into machine code. In our App project, the act of code replication embodies this concept. The original Blockly sequence is compiled into a new, complementary Swift code strand. This replication ensures that the Swift style of instructions is preserved and can be passed on.
 
 ## Future Work:
-### ..................
+### With our project, there are many different dicrections that someone else can take it. Our main idea for the future of this project would be creating two different modes. For these two different modes, a user of the application can create a begginners mode and a intermidiate mode.
 
 ## Contributions: 
 ### ..................
