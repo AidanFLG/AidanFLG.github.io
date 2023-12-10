@@ -1,7 +1,9 @@
 # Project Genesis
 # Tony Bautista, Aidan Lewis-Grenz, Jordan Silver
 
-## To View the videos, click this link: [Genesis Videos](https://AidanFLG.github.io/src/)
+## To View the First video, click this link: [Genesis Video 1](https://AidanFLG.github.io/src/)
+
+## To View the Second video, click this link: [Genesis Video 2](https://AidanFLG.github.io/src/)
 
 ## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
 
