@@ -10,10 +10,10 @@
 
 ## Motivation and Description: 
 
-### The motivation for this project is that there are a lot of apps being created nowadays but it isn't straightforward and not many people understand not only how to build them but also how to use the language Swift. On top of that, it can be hard to get started on a new project. This project will help developers and new developers easily get started on projects and learn about how the Swift language works. The goal is to give the user the choice between beginner level and experienced level. The beginner level will slowly allow you to create blocks and have more blocks appear as you go along making sure that you build your program correctly, giving you only access to blocks that will work with your code, rather than giving you access to all blocks. We hope that this will help inexperienced users learn how to use Swift code and help them create their first project. For the experienced level, it will give you access to all blocks and will not help you or limit access to all the blocks.
+### The motivation for this project is that there are a lot of apps being created nowadays but it isn't straightforward and not many people understand not only how to build them but also how to use the language Swift. On top of that, it can be hard to get started on a new project. This project will help developers and new developers easily get started on projects and learn about how the Swift language works. The goal is to give the user the choice between beginner level and experienced level. The beginner level will slowly allow you to create blocks and have more blocks appear as you go along, making sure that you build your program correctly, giving you only access to blocks that will work with your code rather than giving you access to all blocks. We hope that this will help inexperienced users learn how to use Swift code and help them create their first project. For the experienced level, it will give you access to all blocks and will not help you or limit access to all the blocks.
 
 
-### We currently have one of the described modes created at the moment, and that is the expert mode. to run the code click the link above, or fork our code and run the index file. after running it, press "Sart Blockly". you can grab blocks from the left-hand library, place them into the middle box, and connect blocks to each other. After creating something in the blockly code, you can generate the swift code to show you what you have created, or you can download it using the "download swift" button to download a file named 'generated.swift' with all the code you have generated. With this file, you can copy it into a new Xcode project and your application will be created.
+### We currently have one of the described modes created at the moment, and that is the expert mode. to run the code, click the link above or fork our code and run the index file. after running it, press "Start Blockly". You can grab blocks from the left-hand library, place them into the middle box, and connect blocks to each other. After creating something in the blockly code, you can generate the swift code to show you what you have created, or you can download it using the "download swift" button to download a file named 'generated.swift' with all the code you have generated. You can copy this file into a new Xcode project, and your application will be created.
 
 ## Relation to Parsing, Interpretation, and Compilation:
 
@@ -34,4 +34,6 @@
 ### Conversely, the intermediate-level mode will offer unrestricted access to all blocks, empowering users with greater freedom and versatility in their creative endeavors. Additionally, users in this mode will have access to the same descriptive support available in the beginner-friendly mode, facilitating a seamless transition between skill levels and providing assistance whenever needed.
 
 ## Contributions: 
-### ..................
+### Aidan:
+### Tony:
+### Jordan:
