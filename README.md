@@ -3,7 +3,7 @@
 
 ## To View the project summary video, click this link: [Genesis Summary Video](https://youtu.be/hW96BetTz3c)
 
-## To View the Second video, click this link: [Genesis Video 2]([https://AidanFLG.github.io/src/](https://youtu.be/CU-KCM_SaAM))
+## To View the Second video, click this link: [Genesis Video 2](https://youtu.be/CU-KCM_SaAM)
 
 ## To start the program, click this link: [App Builder](https://AidanFLG.github.io/src/)
 
