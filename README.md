@@ -52,4 +52,3 @@ Play the game on [`localhost:5000`](http://127.0.0.1:5000/) (this link will only
 - `dev` will output the pages being visited in real time (under development)
 
 
-
